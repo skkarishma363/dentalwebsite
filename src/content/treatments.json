@@ -1,0 +1,652 @@
+[
+  {
+    "id": "root-canal-treatment",
+    "title": "Root Canal Treatment",
+    "tagline": "Save Your Infected Teeth Painlessly",
+    "description": "Save infected teeth and eliminate pain with advanced root canal procedures.",
+    "meta_title": "Root Canal Treatment",
+    "meta_description": "End severe toothache. Save infected teeth with single-sitting, microscope-guided Root Canal Treatment (RCT) by experienced Endodontists at Apex.",
+    "icon": "rct",
+    "symptoms": [
+      "Severe, throbbing toothache that worsens when lying down",
+      "Extreme sensitivity to hot or cold food and drinks",
+      "Swelling or tenderness in the gums near the affected tooth",
+      "Dark discoloration of a decaying tooth"
+    ],
+    "benefits": [
+      "Eliminates severe dental pain immediately",
+      "Saves the natural tooth and avoids extraction",
+      "Prevents the infection from spreading to the jawbone",
+      "Restores normal biting and chewing efficiency"
+    ],
+    "procedure": [
+      {
+        "step": "01",
+        "title": "Numbing & Isolation",
+        "text": "We apply local anesthesia to ensure comfort and isolate the tooth with a rubber dam."
+      },
+      {
+        "step": "02",
+        "title": "Disinfection",
+        "text": "Using a dental microscope, we access the pulp chamber and disinfect the infected canals."
+      },
+      {
+        "step": "03",
+        "title": "Canal Filling",
+        "text": "The cleaned root canals are sealed with a biocompatible material called Gutta-Percha."
+      },
+      {
+        "step": "04",
+        "title": "Crown Protection",
+        "text": "A custom dental crown is placed to restore full biting strength and prevent fracture."
+      }
+    ],
+    "why_us": [
+      "Microscope-guided endodontics for 98% canal detection success",
+      "Single-sitting root canals in just 45 minutes for busy patients",
+      "Virtually painless techniques using computer-controlled anesthesia",
+      "Expert MDS Endodontists with 10+ years of dedicated practice"
+    ],
+    "doctor_recommendation": {
+      "name": "Dr. Raheem Mohammad, MDS",
+      "title": "Consultant Endodontist & Restorative Dentist",
+      "quote": "An extracted tooth is a lost asset. Modern root canal treatment allows us to save teeth with extreme accuracy, restoring them to full function without any discomfort.",
+      "photo": "dr_verma.jpg"
+    },
+    "faqs": [
+      {
+        "q": "Can a root canal be done in one sitting?",
+        "a": "Yes! If the infection is localized and doesn't present an active abscess, we can complete the root canal in a single comfortable 45-minute sitting."
+      },
+      {
+        "q": "Is a crown necessary after a root canal?",
+        "a": "Yes. A tooth becomes brittle after a root canal because its nerve and blood supply are removed. A dental crown acts as a protective helmet to prevent the tooth from cracking under biting forces."
+      }
+    ]
+  },
+  {
+    "id": "dental-implants",
+    "title": "Dental Implants",
+    "tagline": "Permanent, Natural-Looking Tooth Replacement",
+    "description": "Restore missing teeth with durable, natural-looking dental implants.",
+    "meta_title": "Dental Implants",
+    "meta_description": "Restore missing teeth permanently. Get premium titanium implants at Apex Dental Hospital. Learn about our 3D CBCT guided, pain-free dental implant procedure.",
+    "icon": "implant",
+    "symptoms": [
+      "One or more missing teeth due to decay or trauma",
+      "Loose or unstable dentures causing discomfort",
+      "Difficulty in chewing food properly",
+      "Sunken facial structure due to bone loss from missing teeth"
+    ],
+    "benefits": [
+      "Behaves exactly like a natural tooth root",
+      "Prevents bone loss and preserves jaw structure",
+      "High durability (lasts a lifetime with proper oral hygiene)",
+      "Does not require grinding adjacent healthy teeth"
+    ],
+    "procedure": [
+      {
+        "step": "01",
+        "title": "Comprehensive Scan",
+        "text": "We take 3D CBCT scans to analyze bone density and digitally plan the exact placement."
+      },
+      {
+        "step": "02",
+        "title": "Implant Placement",
+        "text": "Under local anesthesia, the medical titanium post is painlessly inserted into the jawbone."
+      },
+      {
+        "step": "03",
+        "title": "Healing & Osseointegration",
+        "text": "Over 3-4 months, the bone fuses naturally with the implant, creating a rock-solid anchor."
+      },
+      {
+        "step": "04",
+        "title": "Custom Crown Installation",
+        "text": "We attach a custom-shaded Zirconia crown matching your natural teeth perfectly."
+      }
+    ],
+    "why_us": [
+      "Advanced 3D CBCT guided implant placement for 99.8% success rates",
+      "Premium US & European implant brands (Nobel Biocare, Straumann)",
+      "Performed in dedicated sterile surgical operatory suites",
+      "Interest-free EMI options and lifetime warranty cards"
+    ],
+    "doctor_recommendation": {
+      "name": "Dr. Ravi Kiran, MDS",
+      "title": "Periodontist",
+      "quote": "A dental implant is the closest copy to a natural tooth that modern science has developed. It not only restores your bite but protects your surrounding teeth and jaw bone from deteriorating.",
+      "photo": "dr_sharma.jpg"
+    },
+    "faqs": [
+      {
+        "q": "Are dental implants painful?",
+        "a": "No. The procedure is performed under local anesthesia, ensuring you feel no pain. Post-treatment soreness is mild and easily managed with standard prescribed painkillers."
+      },
+      {
+        "q": "How long does a dental implant last?",
+        "a": "With excellent oral hygiene, regular brushing, and biannual dental cleanings, titanium implants can easily last a lifetime."
+      }
+    ]
+  },
+  {
+    "id": "smile-designing",
+    "title": "Smile Designing",
+    "tagline": "Transform Your Smile Artistically",
+    "description": "Transform your smile with personalized cosmetic dental solutions.",
+    "meta_title": "Smile Designing",
+    "meta_description": "Get a complete smile makeover. We offer state-of-the-art Digital Smile Design, porcelain veneers, and cosmetic dentistry at Apex Dental Hospital.",
+    "icon": "smiledesign",
+    "symptoms": [
+      "Crooked, chipped, or uneven teeth margins",
+      "Severe tetracycline or fluorosis stains that won't whiten",
+      "Asymmetrical smile or excess gum display (gummy smile)",
+      "Desire for a perfect 'Hollywood' or celebrity smile"
+    ],
+    "benefits": [
+      "Completely custom design tailored to your facial features",
+      "Porcelain veneers resist future coffee or smoking stains",
+      "Corrects multiple cosmetic dental issues simultaneously",
+      "Creates a highly natural, symmetrical, and youthful smile"
+    ],
+    "procedure": [
+      {
+        "step": "01",
+        "title": "Digital Mock-up",
+        "text": "We take 3D scans and photos to design your target smile digitally and show you a preview."
+      },
+      {
+        "step": "02",
+        "title": "Teeth Preparation",
+        "text": "A micro-thin layer of enamel (0.3mm to 0.5mm) is gently shaved off to accommodate veneers."
+      },
+      {
+        "step": "03",
+        "title": "Temporary Veneers",
+        "text": "We place temporary veneers while our world-class laboratory fabricates the porcelain structures."
+      },
+      {
+        "step": "04",
+        "title": "Bonding",
+        "text": "We bond the custom-crafted porcelain veneers permanently using light-cured adhesive."
+      }
+    ],
+    "why_us": [
+      "Digital Smile Design (DSD) software to co-design your smile before treatment",
+      "Collaborations with top global dental laboratories for lifelike translucent veneers",
+      "Minimally invasive prep techniques to preserve maximum natural tooth structure",
+      "Experienced cosmetic dentists with hundreds of successful smile makeovers"
+    ],
+    "doctor_recommendation": {
+      "name": "Dr. SSS Swaroop, MDS",
+      "title": "Orthodontist & Aligner Specialist",
+      "quote": "Smile design is a blend of art and science. We look at your facial contours, skin tone, and lip lines to design veneers that look incredibly natural and function beautifully.",
+      "photo": "dr_sharma.jpg"
+    },
+    "faqs": [
+      {
+        "q": "What is the difference between veneers and crowns?",
+        "a": "Veneers are thin porcelain shells bonded only to the front surface of teeth, requiring very minimal tooth preparation. Crowns cover the entire tooth, providing structural strength for damaged or decayed teeth."
+      },
+      {
+        "q": "Are veneers permanent?",
+        "a": "Porcelain veneers are highly durable and typically last 10 to 15 years with proper oral care and regular check-ups."
+      }
+    ]
+  },
+  {
+    "id": "teeth-whitening",
+    "title": "Teeth Whitening",
+    "tagline": "A Bright Sparkly Smile in 45 Minutes",
+    "description": "Brighten your smile safely with professional whitening treatments.",
+    "meta_title": "Teeth Whitening",
+    "meta_description": "Brighten your smile up to 5 shades. Safe, professional, instant laser teeth whitening treatment at Apex Dental. Call today for a cosmetic consult.",
+    "icon": "whitening",
+    "symptoms": [
+      "Yellow, discolored, or stained teeth surfaces",
+      "Dark spots from coffee, tea, turmeric, red wine, or smoking",
+      "Dull teeth enamel due to natural aging",
+      "Desire for a brighter smile before special events like weddings"
+    ],
+    "benefits": [
+      "Instant whitening results in under an hour",
+      "Non-invasive, painless cosmetic procedure",
+      "Laser activation reduces post-treatment tooth sensitivity",
+      "Boosts confidence and gives a youthful look"
+    ],
+    "procedure": [
+      {
+        "step": "01",
+        "title": "Preparation & Cleaning",
+        "text": "We polish your teeth to remove plaque and record your starting tooth shade."
+      },
+      {
+        "step": "02",
+        "title": "Gums Protection",
+        "text": "A protective rubber barrier gel is applied on gums to prevent irritation from bleach."
+      },
+      {
+        "step": "03",
+        "title": "Gel Application",
+        "text": "Professional-strength whitening gel is applied to the front teeth surfaces."
+      },
+      {
+        "step": "04",
+        "title": "Laser Activation",
+        "text": "A special cool laser light activates the gel, breaking down deep stains in 3 cycles."
+      }
+    ],
+    "why_us": [
+      "Use of premium, enamel-safe Philips Zoom! whitening systems",
+      "Cool-light laser technology to minimize tooth sensitivity",
+      "Includes a complimentary take-home touch-up kit",
+      "Fully customized shade matching for a natural look"
+    ],
+    "doctor_recommendation": {
+      "name": "Dr. Shiek Arshi Azeem, BDS",
+      "title": "Dental Surgeon",
+      "quote": "Professional whitening is safe and highly controlled. Unlike DIY charcoal powders or acidic home kits which strip away enamel, our laser process lifts deep stains without damaging your teeth.",
+      "photo": "dr_verma.jpg"
+    },
+    "faqs": [
+      {
+        "q": "Does teeth whitening damage enamel?",
+        "a": "No. When performed by a professional dentist, the bleaching agents do not damage or erode the enamel structure. They simply oxygenate and break down stain molecules inside the enamel pores."
+      },
+      {
+        "q": "How long will the whitening effect last?",
+        "a": "With good brushing and limited staining foods, professional whitening results can easily last 1 to 3 years."
+      }
+    ]
+  },
+  {
+    "id": "braces-aligners",
+    "title": "Braces & Aligners",
+    "tagline": "Straighten Teeth Comfortably and Discreetly",
+    "description": "Straighten teeth comfortably using braces or clear aligners.",
+    "meta_title": "Braces & Aligners",
+    "meta_description": "Align your teeth comfortably without metal wires or brackets using custom-designed braces or clear aligners at Apex Dental Hospital.",
+    "icon": "aligners",
+    "symptoms": [
+      "Crooked, rotated, or overlapping teeth",
+      "Noticeable gaps or spacing between teeth",
+      "Improper bite (overbite, underbite, or crossbite)",
+      "Desire to align teeth using ceramic braces or clear aligners"
+    ],
+    "benefits": [
+      "Virtually invisible clear aligner options",
+      "Highly durable and reliable braces options",
+      "Improves long-term chewing health and jaw alignment",
+      "Custom digital scan planning for predictable outcomes"
+    ],
+    "procedure": [
+      {
+        "step": "01",
+        "title": "Digital Mock-up",
+        "text": "We take 3D digital scans to plan custom tooth movement simulation."
+      },
+      {
+        "step": "02",
+        "title": "Bracket or Tray Fit",
+        "text": "We either bond high-aesthetic ceramic braces or provide custom clear aligner trays."
+      },
+      {
+        "step": "03",
+        "title": "Wear & Adjustment",
+        "text": "Archwires are tensioned monthly, or clear trays are swapped every 1-2 weeks."
+      },
+      {
+        "step": "04",
+        "title": "Retainer Phase",
+        "text": "We place a customized retainer to secure your beautiful straight smile permanently."
+      }
+    ],
+    "why_us": [
+      "Certified Invisalign Provider and orthodontic specialists",
+      "High-precision 3D intraoral scanner impressions (no messy pastes)",
+      "Full range of brackets: metal, aesthetic ceramic, self-ligating, and clear aligners",
+      "Flexible, interest-free monthly installment plans"
+    ],
+    "doctor_recommendation": {
+      "name": "Dr. SSS Swaroop, MDS",
+      "title": "Orthodontist & Aligner Specialist",
+      "quote": "Whether you choose traditional braces or clear aligners, aligning your teeth prevents future gum disease, reduces wear, and creates a highly confident smile.",
+      "photo": "dr_patel.jpg"
+    },
+    "faqs": [
+      {
+        "q": "How long does braces or aligner treatment take?",
+        "a": "Average treatments take between 8 to 18 months, depending on complexity and whether you choose clear aligners or braces."
+      },
+      {
+        "q": "Are clear aligners painful?",
+        "a": "No. Clear aligners exert gentle, continuous force to move teeth, which is far more comfortable than wire adjustments."
+      }
+    ]
+  },
+  {
+    "id": "crowns-bridges",
+    "title": "Dental Crowns & Bridges",
+    "tagline": "Restore Damaged or Missing Teeth",
+    "description": "Restore damaged or missing teeth with high-quality crowns and bridges.",
+    "meta_title": "Dental Crowns & Bridges",
+    "meta_description": "Restore broken or missing teeth. We provide CAD/CAM custom-designed Zirconia crowns, metal-ceramic crowns, and dental bridges with warranty.",
+    "icon": "crowns",
+    "symptoms": [
+      "Fractured, cracked, or severely worn-down teeth",
+      "Large cavities where dental fillings are insufficient",
+      "Missing teeth gap that needs to be filled using adjacent anchors",
+      "Recently treated root canal teeth needing protection"
+    ],
+    "benefits": [
+      "Restores 100% biting force and prevents tooth fracture",
+      "Fills tooth gaps, maintaining correct teeth alignment",
+      "Zirconia crowns are metal-free and mimic natural tooth translucency",
+      "Prevents shifting of adjacent teeth into empty spaces"
+    ],
+    "procedure": [
+      {
+        "step": "01",
+        "title": "Tooth Preparation",
+        "text": "The tooth is trimmed under local anesthesia to create space for the crown cap."
+      },
+      {
+        "step": "02",
+        "title": "3D Digital Scanning",
+        "text": "An intraoral scanner maps the tooth dimensions digitally with high precision."
+      },
+      {
+        "step": "03",
+        "title": "CAD/CAM Milling",
+        "text": "Our lab mills the custom crown from solid Zirconia block using robotic CAD tools."
+      },
+      {
+        "step": "04",
+        "title": "Cementation",
+        "text": "The final crown is checked for bite alignment and cemented permanently."
+      }
+    ],
+    "why_us": [
+      "Use of premium metal-free Zirconia (Lava, 3M, E.Max) with warranty",
+      "3D digital scans instead of uncomfortable mouth trays",
+      "Precision CAD/CAM lab partnerships for tight, food-impaction-free margins",
+      "Fast turnaround times (delivery within 48 to 72 hours)"
+    ],
+    "doctor_recommendation": {
+      "name": "Dr. Raheem Mohammad, MDS",
+      "title": "Consultant Endodontist & Restorative Dentist",
+      "quote": "A crown acts as a protective helmet. With CAD/CAM technology, we can craft metal-free zirconia crowns that fit with micron-level precision, ensuring no food accumulation and absolute comfort.",
+      "photo": "dr_sharma.jpg"
+    },
+    "faqs": [
+      {
+        "q": "How long does it take to get a crown?",
+        "a": "Typically, it requires two visits: one for tooth preparation and scanning, and a second visit 2-3 days later to cement the custom crown."
+      },
+      {
+        "q": "Is a bridge better than a dental implant?",
+        "a": "Dental implants are generally preferred because they do not require shaving down adjacent healthy teeth. Bridges are a good alternative if bone volume for implants is insufficient or if the patient prefers a non-surgical option."
+      }
+    ]
+  },
+  {
+    "id": "wisdom-tooth-removal",
+    "title": "Wisdom Tooth Removal",
+    "tagline": "Safe, Pain-Free Wisdom Teeth Extraction",
+    "description": "Safe and painless extraction of impacted wisdom teeth.",
+    "meta_title": "Wisdom Tooth Removal",
+    "meta_description": "Safe, painless wisdom tooth extractions. Get suture-free, atraumatic extractions under sterile conditions by MDS Oral Surgeons at Apex.",
+    "icon": "extraction",
+    "symptoms": [
+      "Severe pain or pressure at the back of the jaw",
+      "Swelling, jaw stiffness, or infections near partially erupted molars",
+      "Food entrapment behind the second molars",
+      "Impacted wisdom teeth shown on routine x-rays"
+    ],
+    "benefits": [
+      "Relieves pressure and throbbing wisdom tooth pain immediately",
+      "Prevents damage and decay to adjacent healthy molars",
+      "Eliminates gum infections and swelling behind the jaw",
+      "Atraumatic surgical techniques protect jawbone structure"
+    ],
+    "procedure": [
+      {
+        "step": "01",
+        "title": "3D Digital Scan",
+        "text": "We analyze digital x-rays to locate root proximity to major jaw nerves."
+      },
+      {
+        "step": "02",
+        "title": "Profound Anesthesia",
+        "text": "We administer local anesthetics to ensure complete numbness and comfort."
+      },
+      {
+        "step": "03",
+        "title": "Safe Extraction",
+        "text": "Our oral surgeon gently luxates and extracts the wisdom tooth."
+      },
+      {
+        "step": "04",
+        "title": "Accelerated Healing",
+        "text": "We apply suture-free healing dressings to ensure rapid recovery."
+      }
+    ],
+    "why_us": [
+      "Atraumatic surgery completed in under 30 minutes by Oral Surgeons",
+      "Use of Platelet Rich Fibrin (PRF) to prevent dry socket risk",
+      "Dedicated sterile operatory suites for maximum safety",
+      "Comprehensive post-operative checkups and medication plans"
+    ],
+    "doctor_recommendation": {
+      "name": "Dr. Siddu Kalyan, MDS",
+      "title": "Oral & Maxillofacial Surgeon",
+      "quote": "Wisdom teeth often lack space to erupt and get trapped, causing infections. Timely and sterile removal prevents chronic pain and keeps your adjacent molars healthy.",
+      "photo": "dr_sharma.jpg"
+    },
+    "faqs": [
+      {
+        "q": "Is wisdom tooth extraction painful?",
+        "a": "No. With advanced local anesthesia, you will feel only mild pressure but no pain during the procedure. Post-op discomfort is easily controlled with prescription medications."
+      },
+      {
+        "q": "How long does recovery take?",
+        "a": "Initial soft tissue healing occurs within 3 to 5 days. We provide a post-op care sheet to help you recover quickly."
+      }
+    ]
+  },
+  {
+    "id": "child-dentistry",
+    "title": "Child Dentistry",
+    "tagline": "Gentle Dental Care for Happy Kids",
+    "description": "Gentle and specialized dental care for children of all ages.",
+    "meta_title": "Child Dentistry",
+    "meta_description": "Friendly dental care for kids. We offer preventive fluoride therapies, cavity fillings, pit & fissure sealants, and gentle care by child specialists at Apex.",
+    "icon": "pediatric",
+    "symptoms": [
+      "Tooth decay or cavities in baby teeth",
+      "Pain, sensitivity, or swollen gums in children",
+      "Thumb sucking or mouth breathing habits",
+      "Irregular eruption of permanent teeth"
+    ],
+    "benefits": [
+      "Prevents cavities and promotes strong permanent teeth growth",
+      "Creates positive associations, eliminating future dental fear",
+      "Early interceptive screening prevents complex orthodontic issues",
+      "Nitrous oxide options for a completely calm visit"
+    ],
+    "procedure": [
+      {
+        "step": "01",
+        "title": "Playful Introduction",
+        "text": "We introduce the child to dental tools as friendly toys to build confidence."
+      },
+      {
+        "step": "02",
+        "title": "Specialist Checkup",
+        "text": "We carefully check the teeth, gums, and developmental milestones."
+      },
+      {
+        "step": "03",
+        "title": "Fluoride Protection",
+        "text": "We apply protective fluoride varnish or seal deep pits in teeth."
+      },
+      {
+        "step": "04",
+        "title": "Habit Counseling",
+        "text": "We work with parents to teach brushing habits and break thumb-sucking."
+      }
+    ],
+    "why_us": [
+      "Child-friendly operatory room with toys and cartoon ceiling screens",
+      "MDS Pediatric specialists trained in behavioral management",
+      "Safe conscious sedation ('laughing gas') for anxious children",
+      "Preventive-first philosophy to avoid pain and decay"
+    ],
+    "doctor_recommendation": {
+      "name": "Dr. Shiek Arshi Azeem, BDS",
+      "title": "Dental Surgeon",
+      "quote": "Baby teeth guide permanent teeth into place. Treating baby teeth is critical to keep children pain-free, well-nourished, and developing healthy permanent teeth.",
+      "photo": "dr_reddy.jpg"
+    },
+    "faqs": [
+      {
+        "q": "At what age should a child first visit a dentist?",
+        "a": "By their first birthday or when their first baby tooth erupts, to establish a preventive schedule."
+      },
+      {
+        "q": "What are pit and fissure sealants?",
+        "a": "These are thin protective coatings painted on the chewing surfaces of back teeth to prevent food from getting stuck and causing cavities."
+      }
+    ]
+  },
+  {
+    "id": "gum-treatments",
+    "title": "Gum Treatments",
+    "tagline": "Stop Gum Bleeding and Protect Loose Teeth",
+    "description": "Treat gum disease and maintain healthy gums with expert periodontal care.",
+    "meta_title": "Gum Treatments",
+    "meta_description": "Stop bleeding gums and bad breath. Get advanced periodontics, deep scaling, root planing, and laser gum therapy at Apex Dental Hospital.",
+    "icon": "gum",
+    "symptoms": [
+      "Bleeding gums while brushing or chewing hard food",
+      "Swollen, puffy, or tender gum tissues",
+      "Receding gumline making teeth look longer",
+      "Persistent bad breath or loose, shifting teeth"
+    ],
+    "benefits": [
+      "Stops gum swelling, redness, and bleeding immediately",
+      "Prevents loose teeth and tooth loss due to Periodontitis",
+      "Eliminates chronic bad breath at its bacterial source",
+      "Lowers systemic inflammatory risks related to diabetes and heart conditions"
+    ],
+    "procedure": [
+      {
+        "step": "01",
+        "title": "Pocket Measurement",
+        "text": "We check the depth of periodontal pockets to analyze bone support."
+      },
+      {
+        "step": "02",
+        "title": "Ultrasonic Scaling",
+        "text": "We remove hard tartar deposits above and below the gumline."
+      },
+      {
+        "step": "03",
+        "title": "Root Planing",
+        "text": "We smooth out the roots to encourage gum reattachment."
+      },
+      {
+        "step": "04",
+        "title": "Laser Sterilization",
+        "text": "We use dental lasers to disinfect deep pockets and kill bacteria."
+      }
+    ],
+    "why_us": [
+      "Advanced laser-assisted periodontal therapies for fast healing",
+      "MDS Periodontists with extensive surgical flap expertise",
+      "Comprehensive bone graft procedures to secure loose teeth",
+      "Customized maintenance protocols for long-term health"
+    ],
+    "doctor_recommendation": {
+      "name": "Dr. Ravi Kiran, MDS",
+      "title": "Periodontist",
+      "quote": "Gums hold your teeth in place. Scalings and laser gum therapies remove bacterial plaque and tartar, which allows gums to tighten and keeps your foundation healthy.",
+      "photo": "dr_verma.jpg"
+    },
+    "faqs": [
+      {
+        "q": "Why do my gums bleed?",
+        "a": "Gums bleed due to inflammation caused by tartar accumulation. Scaling removes this tartar, allowing gums to heal."
+      },
+      {
+        "q": "Does teeth scaling make teeth loose?",
+        "a": "No. Scaling removes the hard tartar calculus that was masking teeth mobility, allowing gums to heal and tighten around the teeth."
+      }
+    ]
+  },
+  {
+    "id": "emergency-dental-care",
+    "title": "Emergency Dental Care",
+    "tagline": "Immediate Care for Pain and Dental Trauma",
+    "description": "Immediate treatment for dental pain, injuries, and urgent dental problems.",
+    "meta_title": "Emergency Dental Care",
+    "meta_description": "Need an emergency dentist in Kakinada? Get immediate treatment for severe toothaches, broken teeth, knocked-out teeth, and dental infections at Apex.",
+    "icon": "shield-check",
+    "symptoms": [
+      "Severe, unbearable toothache that prevents sleeping",
+      "Chipped, fractured, or knocked-out permanent tooth",
+      "Swelling in the face, gums, or jaw due to abscess",
+      "Bleeding or injury to the mouth, tongue, or lips"
+    ],
+    "benefits": [
+      "Provides immediate relief from severe pain",
+      "Saves knocked-out or fractured teeth if treated quickly",
+      "Prevents severe facial infections from spreading",
+      "Same-day priority bookings for trauma cases"
+    ],
+    "procedure": [
+      {
+        "step": "01",
+        "title": "Immediate Diagnosis",
+        "text": "We take urgent x-rays and inspect the injury to identify the source of pain."
+      },
+      {
+        "step": "02",
+        "title": "Pain Management",
+        "text": "We administer local anesthetics or prescribe immediate medications to manage pain."
+      },
+      {
+        "step": "03",
+        "title": "Emergency Treatment",
+        "text": "We perform emergency procedures (e.g., pulp extirpation, bonding, or splinting)."
+      },
+      {
+        "step": "04",
+        "title": "Restoration Plan",
+        "text": "Once the pain is resolved, we create a follow-up plan for permanent restoration."
+      }
+    ],
+    "why_us": [
+      "Dedicated emergency slots reserved daily for walk-in dental pain cases",
+      "Full surgical and restorative MDS team on call",
+      "Advanced pain-management protocols and microscopic care",
+      "Strict sterilization and trauma safety standards"
+    ],
+    "doctor_recommendation": {
+      "name": "Dr. Shiek Arshi Azeem, BDS",
+      "title": "Dental Surgeon",
+      "quote": "A dental emergency like a knocked-out tooth or severe throbbing pain requires immediate action. Getting treated within the first hour can save your tooth and prevent severe infection.",
+      "photo": "dr_verma.jpg"
+    },
+    "faqs": [
+      {
+        "q": "What should I do if a tooth is knocked out?",
+        "a": "Locate the tooth, hold it by the crown (do not touch the root), rinse it gently with water, and place it in milk or saliva. Visit us within 60 minutes for the best chance of saving the tooth."
+      },
+      {
+        "q": "Do you offer same-day emergency appointments?",
+        "a": "Yes. We prioritize dental emergencies and provide same-day slots to relieve pain and manage trauma immediately."
+      }
+    ]
+  }
+]

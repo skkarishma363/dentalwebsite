@@ -1,0 +1,226 @@
+{
+  "hero": {
+    "badge": "Leading Dental Care Excellence",
+    "title": "Premium Dental Care For A Lifetime Of Smiles",
+    "description": "Experience pain-free, state-of-the-art dental solutions at APEX DENTAL HOSPITAL. Our elite team of specialists is dedicated to restoring your smile with world-class technology.",
+    "trustIndicators": [
+      "Experienced Dentists",
+      "Modern Technology",
+      "Pain-Free Treatments",
+      "Sterile Environment"
+    ],
+    "floatingCards": [
+      {
+        "value": "4.9★",
+        "label": "Google Rating",
+        "icon": "star"
+      },
+      {
+        "value": "7+",
+        "label": "Years Experience",
+        "icon": "award"
+      },
+      {
+        "value": "3,000+",
+        "label": "Happy Customers",
+        "icon": "users"
+      }
+    ]
+  },
+  "whyChooseUs": {
+    "title": "Why Choose Apex Dental",
+    "subtitle": "We set the standard in modern dental care with a patient-first approach, sterile environments, and top-tier expertise.",
+    "cards": [
+      {
+        "title": "Experienced Specialists",
+        "text": "Our MDS doctors have trained internationally, offering unmatched expertise in implantology, orthodontics, and cosmetic treatments.",
+        "icon": "user-check"
+      },
+      {
+        "title": "Advanced Technology",
+        "text": "From CBCT 3D Scans to Painless Lasers and Intraoral Scanners, we leverage technology for precise diagnosis and comfortable treatments.",
+        "icon": "cpu"
+      },
+      {
+        "title": "Pain-Free Dentistry",
+        "text": "We utilize computer-controlled local anesthesia, dental sedation options, and ultra-gentle techniques to ensure a painless experience.",
+        "icon": "heart"
+      },
+      {
+        "title": "Affordable Treatment Plans",
+        "text": "High-quality healthcare shouldn't be stressful. We provide transparent pricing, interest-free EMI options, and clear treatment phases.",
+        "icon": "dollar-sign"
+      },
+      {
+        "title": "Strict Sterilization Protocols",
+        "text": "Your safety is our priority. We employ standard Class-B autoclave sterilization, disposable sets, and chemical indicators for 100% safety.",
+        "icon": "shield-check"
+      },
+      {
+        "title": "Patient-Centric Care",
+        "text": "Every smile is unique. We provide customized treatment plans, flexible hours, comfortable waiting lounges, and dedicated follow-ups.",
+        "icon": "smile"
+      }
+    ]
+  },
+  "technology": {
+    "title": "State-Of-The-Art Technology",
+    "subtitle": "Apex Dental is equipped with advanced clinical machinery to deliver high-precision diagnoses and fast, pain-free recovery.",
+    "items": [
+      {
+        "title": "Rotary Root Canal Treatment",
+        "tagline": "Modern rotary technology for faster, more comfortable root canals.",
+        "detailedDescription": "Advanced rotary instruments designed to navigate complex root canal systems with flexibility and precision, ensuring high success rates and patient comfort.",
+        "benefits": [
+          "Improved treatment precision",
+          "Faster diagnosis & procedure time",
+          "Better patient comfort",
+          "Higher treatment success rates"
+        ],
+        "mappedTreatment": "RCT"
+      },
+      {
+        "title": "Electronic Apex Locator",
+        "tagline": "Accurate root canal length measurement technology.",
+        "detailedDescription": "Advanced digital diagnostic equipment that precisely determines the apex location and length of root canals to ensure thorough filling and treatment success.",
+        "benefits": [
+          "Micron-level length measurements",
+          "Higher treatment success rates",
+          "Minimizes dental X-ray exposure",
+          "Eliminates clinical guesswork"
+        ],
+        "mappedTreatment": "RCT"
+      },
+      {
+        "title": "Ultrasonic Endodontics",
+        "tagline": "Deep cleaning and disinfection of root canals.",
+        "detailedDescription": "High-frequency ultrasonic soundwaves used to activate irrigants inside root canals, removing debris and bacteria from micro-cavities that traditional instruments cannot reach.",
+        "benefits": [
+          "Advanced micro-disinfection",
+          "Cleans hard-to-reach areas",
+          "Painless and gentle action",
+          "Prevents future re-infection"
+        ],
+        "mappedTreatment": "RCT"
+      },
+      {
+        "title": "Implant Dentistry Equipment",
+        "tagline": "Precision surgical guidance for secure dental implants.",
+        "detailedDescription": "Advanced implantology gear, including motor units and surgical guides, enabling precise depth and angle alignment for optimal osseointegration and longevity.",
+        "benefits": [
+          "Micron-level placement accuracy",
+          "Faster surgical healing times",
+          "Minimal post-operative discomfort",
+          "Excellent long-term stability"
+        ],
+        "mappedTreatment": "Implants"
+      },
+      {
+        "title": "Class B Autoclave Sterilization",
+        "tagline": "Hospital-grade vacuum sterilization for 100% safety.",
+        "detailedDescription": "Medical-grade pre- and post-vacuum sterilizer that penetrates porous materials and hollow instruments, eliminating 99.99% of pathogens and viruses.",
+        "benefits": [
+          "Zero cross-contamination risk",
+          "Validated chemical indicators",
+          "Meets strict European standards",
+          "100% patient safety assurance"
+        ],
+        "mappedTreatment": "Emergency"
+      },
+      {
+        "title": "Intraoral Camera",
+        "tagline": "High-resolution dental imaging you can see in real-time.",
+        "detailedDescription": "Ultra-compact high-definition camera that captures live, close-up images of teeth and gums, allowing you to see exactly what the dentist sees on a screen.",
+        "benefits": [
+          "Clear visual explanations",
+          "Early cavity detection",
+          "Instant diagnostic sharing",
+          "Transparent treatment planning"
+        ],
+        "mappedTreatment": "Smile Design"
+      },
+      {
+        "title": "Digital Patient Records",
+        "tagline": "Secure and instant access to your dental history.",
+        "detailedDescription": "Fully digitized cloud patient records containing clinical history, high-res digital X-rays, and timeline tracking to ensure seamless multi-specialist care.",
+        "benefits": [
+          "Zero lost reports or charts",
+          "Rapid specialist coordination",
+          "Efficient, organized clinical care",
+          "Accurate treatment timeline tracking"
+        ],
+        "mappedTreatment": ""
+      }
+    ]
+  },
+  "patientJourney": {
+    "title": "Your Patient Journey",
+    "subtitle": "From the first click to the final follow-up, here is how we ensure your seamless, comfortable care.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Book Appointment",
+        "text": "Schedule easily online, call directly, or chat via WhatsApp to select your preferred slot."
+      },
+      {
+        "number": "02",
+        "title": "Consultation",
+        "text": "Meet our specialists, explain your dental concerns, and undergo a visual and digital check-up."
+      },
+      {
+        "number": "03",
+        "title": "Diagnosis",
+        "text": "Get high-accuracy CBCT or digital RVG X-rays on the spot to map out exact root issues."
+      },
+      {
+        "number": "04",
+        "title": "Treatment Planning",
+        "text": "Review custom options, step-by-step phases, absolute costs, and choose what fits your budget."
+      },
+      {
+        "number": "05",
+        "title": "Procedure",
+        "text": "Undergo painless treatment in our modern operatory chairs under strict sterilization."
+      },
+      {
+        "number": "06",
+        "title": "Follow-Up Care",
+        "text": "Receive clear post-op instructions, custom kits, and follow-up calls to ensure smooth recovery."
+      }
+    ]
+  },
+  "generalFaq": [
+    {
+      "q": "Is Root Canal Treatment painful?",
+      "a": "No, not at all! With modern local anesthetics and advanced rotary endodontics, a root canal is as painless as getting a normal tooth filling. Most patients feel immediate relief from prior toothaches after the first session."
+    },
+    {
+      "q": "How much do dental implants cost?",
+      "a": "The cost of dental implants varies depending on the implant brand (e.g., Osstem, Nobel Biocare, Straumann), clinical bone volume, and the final crown material (Metal Ceramic, Zirconia). We offer transparent pricing starting from competitive rates, along with interest-free EMI plans."
+    },
+    {
+      "q": "How long does professional teeth whitening last?",
+      "a": "Professional laser teeth whitening typically lasts between 1 to 3 years. The exact duration depends on your lifestyle and diet (such as consumption of coffee, tea, red wine, or smoking). Using a whitening toothpaste and maintaining good oral hygiene extends the brightness."
+    },
+    {
+      "q": "Are clear aligners better than traditional braces?",
+      "a": "Clear aligners are virtually invisible, removable (making eating and cleaning teeth much easier), and generally more comfortable than metal braces. While they are highly effective for most dental crowding and spacing cases, severe skeletal jaw corrections may still benefit from traditional braces. Our orthodontist will guide you on the best choice."
+    },
+    {
+      "q": "Do you provide same-day dental appointments?",
+      "a": "Yes. We strive to accommodate dental emergencies and urgent cases with same-day appointments whenever possible. Patients can contact our clinic directly for immediate assistance and priority scheduling."
+    },
+    {
+      "q": "Are your dental procedures safe and sterilized?",
+      "a": "Absolutely. Apex Dental Hospital follows strict sterilization protocols using advanced Class B autoclave systems and modern infection-control practices. Patient safety and hygiene are our highest priorities."
+    },
+    {
+      "q": "Do you offer dental treatment for children?",
+      "a": "Yes. Our Child Dentistry services provide gentle, preventive, and specialized dental care for children of all ages in a comfortable and friendly environment."
+    },
+    {
+      "q": "What payment options are available for dental treatments?",
+      "a": "We accept multiple payment methods, including cash, UPI, debit cards, credit cards, and selected EMI options for eligible treatments to make quality dental care more accessible."
+    }
+  ]
+}

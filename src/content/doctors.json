@@ -1,0 +1,117 @@
+[
+  {
+    "id": "dr-mohammad-raheem",
+    "name": "Dr Mohammad Raheem",
+    "qualification": "MDS, Consultant Endodontist & Restorative Dentist",
+    "specialization": "Specialised in Root Canal Treatment & Advanced Implantology",
+    "experience": "8+ Years Experience",
+    "bio": "Dr. Raheem Mohammad, BDS, MDS\n\nConsultant Endodontist & Restorative Dentist\n\nDr. Raheem Mohammad is a highly skilled dental specialist with expertise in Conservative Dentistry and Endodontics. He completed his Bachelor of Dental Surgery (BDS) from Government Dental College, Vijayawada and earned his Master of Dental Surgery (MDS) in Conservative Dentistry & Endodontics from Vishnu Dental College.\n\nHe is a proud member of the Indian Association of Conservative Dentistry and Endodontics and is committed to delivering evidence-based, patient-centered dental care.\n\nHis areas of expertise include advanced root canal treatments, retreatment of failed root canals, management of dental pain and infections, esthetic restorations, and preservation of natural teeth.\n\nAt Apex Dental Hospital, Dr. Raheem focuses on providing precise diagnosis, painless treatment, and personalized care using modern dental techniques and strict sterilization protocols.\n\nHis goal is to help every patient achieve optimal oral health while ensuring a comfortable and positive treatment experience.",
+    "education": [
+      "MDS in Conservative Dentistry & Endodontics - Vishnu Dental College",
+      "BDS - Government Dental College, Vijayawada"
+    ],
+    "fellowships": [
+      "Member of the Indian Association of Conservative Dentistry and Endodontics"
+    ],
+    "photo": "dr_raheem.png",
+    "quote": "Dedicated to preserving natural teeth and creating healthy, confident smiles.",
+    "special_interests": [
+      "Single Visit Root Canal Treatment",
+      "Advanced Endodontics & Retreatment Cases",
+      "Management of Dental Pain & Infections",
+      "Esthetic Tooth-Colored Restorations",
+      "Dental Implants",
+      "Smile Rehabilitation"
+    ],
+    "areas_of_expertise": [
+      "Advanced root canal treatments",
+      "Retreatment of failed root canals",
+      "Management of dental pain and infections",
+      "Esthetic restorations",
+      "Preservation of natural teeth"
+    ]
+  },
+  {
+    "id": "dr-shiek-arshi-azeem",
+    "name": "Dr. Shiek Arshi Azeem",
+    "qualification": "BDS, Dental Surgeon",
+    "specialization": "General Dentistry, Preventive Dentistry, Restorative Dentistry, Root Canal Treatments, and Cosmetic Dental Procedures",
+    "experience": "6 Years Experience",
+    "bio": "Dr. Shiek Arshi Azeem, BDS\n\nDental Surgeon\n\nDr. Shiek Arshi Azeem is a dedicated Dental Surgeon who graduated from Lenora Institute of Dental Sciences, Rajahmundry. With 6 years of clinical experience, she is committed to providing comprehensive dental care with a patient-centered approach.\n\nShe has expertise in the diagnosis, prevention, and treatment of various dental conditions, focusing on delivering safe, effective, and comfortable treatment experiences. Dr. Azeem continually strives to maintain high standards of dental care while ensuring patient comfort and satisfaction.\n\nAt Apex Dental Hospital, Dr. Shiek Arshi Azeem focuses on providing precise diagnosis, preventive dental care, restorative treatments, and cosmetic dental procedures using modern techniques and strict sterilization protocols. Her goal is to help every patient achieve optimal oral health while ensuring a comfortable and positive treatment experience.",
+    "education": [
+      "BDS - Lenora Institute of Dental Sciences, Rajahmundry"
+    ],
+    "fellowships": [],
+    "photo": "dr_arshi.png",
+    "quote": "Dedicated to creating healthy smiles through quality dental care and compassionate service.",
+    "special_interests": [
+      "General Dentistry",
+      "Preventive Dental Care",
+      "Restorative Treatments",
+      "Tooth Extractions",
+      "Root Canal Treatments",
+      "Cosmetic Dental Procedures"
+    ],
+    "areas_of_expertise": [
+      "General Dentistry",
+      "Preventive Dental Care",
+      "Restorative Treatments",
+      "Tooth Extractions",
+      "Root Canal Treatments",
+      "Cosmetic Dental Procedures"
+    ]
+  },
+  {
+    "id": "dr-priya-patel",
+    "name": "Dr. Priya Patel",
+    "qualification": "MDS, Orthodontist & Dentofacial Orthopedics",
+    "specialization": "Invisible Aligners, Clear Braces, Pediatric Orthodontics",
+    "experience": "12+ Years Experience",
+    "bio": "Dr. Priya Patel is a certified Invisalign Provider and holds specialized expertise in straightening teeth for kids, teens, and adults. She focuses on custom biomechanics and patient comfort to deliver beautiful, straight smiles. She keeps up-to-date with digital scan planning to reduce treatment times.",
+    "education": [
+      "MDS in Orthodontics - King George's Medical University, Lucknow",
+      "BDS - Nair Hospital Dental College, Mumbai",
+      "Certified Invisalign Diamond Provider"
+    ],
+    "fellowships": [
+      "Advanced Lingual Orthodontics training - Seoul, South Korea",
+      "Member of World Federation of Orthodontists (WFO)"
+    ],
+    "photo": "dr_patel.jpg"
+  },
+  {
+    "id": "dr-rohan-verma",
+    "name": "Dr. Rohan Verma",
+    "qualification": "MDS, Endodontist (Root Canal Specialist)",
+    "specialization": "Microscope Root Canal, Retreatment, Regenerative Endodontics",
+    "experience": "10+ Years Experience",
+    "bio": "Dr. Rohan Verma specializes in saving diseased teeth through painless, microscope-guided root canals. He utilizes advanced rotary instrumentation and warm vertical compaction techniques to complete procedures in a single session. His gentle approach is highly appreciated by anxious patients.",
+    "education": [
+      "MDS in Conservative Dentistry & Endodontics - SDM College of Dental Sciences, Dharwad",
+      "BDS - Manipal College of Dental Sciences",
+      "Specialized Training in Endodontic Microsurgery"
+    ],
+    "fellowships": [
+      "Diploma in Laser Dentistry - SOLA Academy, Vienna",
+      "Member of Indian Association of Conservative Dentistry and Endodontics (IACDE)"
+    ],
+    "photo": "dr_verma.jpg"
+  },
+  {
+    "id": "dr-sneha-reddy",
+    "name": "Dr. Sneha Reddy",
+    "qualification": "MDS, Pediatric Dentist",
+    "specialization": "Child Dentistry, Preventive Sealants, Nitrous Oxide Sedation",
+    "experience": "8+ Years Experience",
+    "bio": "Dr. Sneha Reddy is dedicated to creating friendly, warm, and positive dental experiences for young children. She specializes in preventive dental care, dental trauma management, and pediatric treatments under conscious sedation, ensuring that kids grow up with healthy, cavity-free smiles.",
+    "education": [
+      "MDS in Pediatric & Preventive Dentistry - Bapuji Dental College, Davangere",
+      "BDS - Government Dental College, Bangalore"
+    ],
+    "fellowships": [
+      "Conscious Sedation Clinical Training - London, UK",
+      "Member of Indian Society of Pedodontics and Preventive Dentistry (ISPPD)"
+    ],
+    "photo": "dr_reddy.jpg"
+  }
+]

@@ -1,0 +1,184 @@
+<!-- Treatment Hero Banner -->
+<section class="treatment-detail-hero">
+  <!-- Parallax Background Image -->
+  <div class="hero-parallax-bg" style="background-image: url('{{hero_background_img}}');"></div>
+  <!-- Blue Gradient Overlay -->
+  <div class="hero-overlay-gradient"></div>
+  
+  <div class="container hero-content-wrapper">
+    {{breadcrumb}}
+    <div class="badge badge-teal">APEX SPECIALTY CARE</div>
+    <h1>{{title}}</h1>
+    <p class="hero-tagline">{{tagline}}</p>
+    
+    <!-- CTA Button Group -->
+    <div class="hero-cta-group">
+      <a href="/index.html#booking" class="btn btn-hero-booking">Book Free Consultation</a>
+      <a href="tel:+918978644036" class="btn btn-hero-call">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        Call Now
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Content Grid -->
+<section class="section">
+  <div class="container treatment-detail-grid">
+    
+    <!-- Main Content Area -->
+    <div class="detail-main">
+      
+      <!-- Symptoms Section -->
+      <div class="detail-block">
+        <h2>When Is This Treatment Needed?</h2>
+        <p>If you are experiencing any of the following symptoms, it may be time to consult our specialists for a personalized clinical evaluation:</p>
+        <ul class="symptom-list">
+          {{symptoms}}
+        </ul>
+      </div>
+
+      <!-- Benefits Section -->
+      <div class="detail-block">
+        <h2>Benefits of {{title}}</h2>
+        <p>Choosing this treatment at Apex Dental Hospital guarantees several health and aesthetic advantages:</p>
+        <ul class="benefit-list">
+          {{benefits}}
+        </ul>
+      </div>
+
+      <!-- Procedure Section -->
+      <div class="detail-block">
+        <h2>Treatment Procedure: What to Expect</h2>
+        <p>We believe in transparent, step-by-step patient journeys. Here is how we perform the treatment:</p>
+        
+        <div class="procedure-layout-grid">
+          <!-- Left Side: Procedure Cards -->
+          <div class="procedure-steps-column">
+            <div class="procedure-step-wrapper">
+              {{procedure}}
+            </div>
+          </div>
+          
+          <!-- Right Side: Video Showcase -->
+          <div class="procedure-video-column">
+            <div class="procedure-video-card" data-videos='{{video_src_list}}'>
+              <h3 class="video-section-title">Watch The Treatment Process</h3>
+              
+              <div class="video-player-wrapper">
+                <video id="procedureVideo" class="procedure-video" preload="metadata" poster="{{video_thumbnail}}" playsinline>
+                  <source id="videoSource" src="{{video_src_0}}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <button class="video-play-overlay" id="videoPlayOverlayBtn" aria-label="Play Video">
+                  <span class="play-icon">▶</span>
+                </button>
+              </div>
+              
+              <p class="video-section-desc">Understand the clinical steps and disinfection protocols of your treatment visually before visiting our clinic.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Doctor Recommendation Card -->
+      <div class="detail-block" style="background-color: var(--color-bg-secondary); border: 1px solid var(--color-border); padding: var(--space-md); border-radius: var(--radius-md); margin-top: var(--space-md);">
+        <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--color-teal);">Doctor's Opinion</h3>
+        <blockquote style="font-style: italic; margin-bottom: 1rem; color: var(--color-text-main);">
+          "{{doctor_quote}}"
+        </blockquote>
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div style="width: 45px; height: 45px; border-radius: var(--radius-full); overflow: hidden; background-color: var(--color-border);">
+            <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background-color:var(--color-teal); color:white; font-weight:700;">MD</div>
+          </div>
+          <div>
+            <strong style="display: block; font-size: 0.95rem;">{{doctor_name}}</strong>
+            <span class="text-muted" style="font-size: 0.8rem;">{{doctor_title}}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why Choose Us specific to treatment -->
+      <div class="detail-block" style="margin-top: var(--space-lg);">
+        <h2>Why Choose Us for {{title}}?</h2>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem;">
+          {{why_us}}
+        </ul>
+      </div>
+
+
+
+      <!-- FAQs Section -->
+      <div class="detail-block" style="margin-top: var(--space-lg);">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-accordion" style="margin-top: 1rem;">
+          {{faqs}}
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Treatment Consultation Popup Modal -->
+<div class="treatment-modal-overlay" id="treatmentModal" role="dialog" aria-modal="true" aria-labelledby="tModalTitle">
+  <div class="treatment-modal-content">
+    <button class="treatment-modal-close" id="tModalCloseBtn" aria-label="Close modal">&times;</button>
+    
+    <div class="treatment-modal-header">
+      <h3 id="tModalTitle">Book Free Consultation</h3>
+      <p class="t-modal-subtitle">Direct booking for {{title}}</p>
+    </div>
+
+    <!-- Success Block -->
+    <div class="form-success" id="tModalSuccess" style="display: none;">
+      <div class="form-success-icon" style="margin-bottom: 1rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <h3>Thank you!</h3>
+      <p>Our team will contact you shortly.</p>
+    </div>
+
+    <form id="tModalForm" class="t-modal-form">
+      <div class="form-group">
+        <label for="tModalName" class="form-label">Full Name*</label>
+        <input type="text" id="tModalName" class="form-input" required placeholder="Enter your full name">
+      </div>
+      <div class="form-group">
+        <label for="tModalPhone" class="form-label">Phone Number*</label>
+        <input type="tel" id="tModalPhone" class="form-input" required placeholder="Enter your phone number">
+      </div>
+      <div class="form-group">
+        <label for="tModalTreatment" class="form-label">Treatment Name</label>
+        <!-- Pre-selected and disabled so users see the correct treatment -->
+        <select id="tModalTreatment" class="form-input" disabled data-current-treatment="{{treatment_id}}">
+          <option value="root-canal-treatment">Root Canal Treatment</option>
+          <option value="dental-implants">Dental Implants</option>
+          <option value="smile-designing">Smile Designing</option>
+          <option value="teeth-whitening">Teeth Whitening</option>
+          <option value="braces-aligners">Braces & Aligners</option>
+          <option value="crowns-bridges">Dental Crowns & Bridges</option>
+          <option value="wisdom-tooth-removal">Wisdom Tooth Removal</option>
+          <option value="child-dentistry">Child Dentistry</option>
+          <option value="gum-treatments">Gum Treatments</option>
+          <option value="emergency-dental-care">Emergency Dental Care</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="tModalDate" class="form-label">Preferred Date*</label>
+        <input type="date" id="tModalDate" class="form-input" required>
+      </div>
+      <div class="form-group form-group-full">
+        <label for="tModalMessage" class="form-label">Message (Optional)</label>
+        <textarea id="tModalMessage" class="form-input" placeholder="Briefly describe your symptoms or preferences"></textarea>
+      </div>
+      <div class="t-modal-buttons form-group-full">
+        <button type="submit" class="btn btn-primary" id="tModalSubmitBtn">Submit Appointment Request</button>
+        <button type="button" class="btn btn-secondary" id="tModalCancelBtn">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

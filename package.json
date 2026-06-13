@@ -1,0 +1,14 @@
+{
+  "name": "apex-dental-hospital",
+  "version": "1.0.0",
+  "description": "Premium Dental Hospital Website for APEX DENTAL HOSPITAL",
+  "main": "compile.js",
+  "scripts": {
+    "build": "node compile.js",
+    "dev": "node compile.js && npx lite-server"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
