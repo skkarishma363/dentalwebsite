@@ -3318,6 +3318,21 @@ p {
   font-size: 0.8rem;
 }
 
+.designer-block {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  vertical-align: middle;
+}
+
+.jk-logo-img {
+  height: 26px;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+  object-fit: contain;
+}
+
 .footer-bottom-links {
   display: flex;
   gap: 1rem;
@@ -3772,28 +3787,7 @@ p {
   }
   
   .floating-card {
-    padding: 0.5rem 0.75rem;
-    gap: 0.5rem;
-  }
-  
-  .floating-card-info strong {
-    font-size: 0.9rem;
-  }
-  
-  .floating-card-info span {
-    font-size: 0.65rem;
-  }
-  
-  .floating-card-1 {
-    left: 0;
-  }
-  
-  .floating-card-2 {
-    right: 0;
-  }
-  
-  .floating-card-3 {
-    left: 10%;
+    display: none !important;
   }
   
   :root {

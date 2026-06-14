@@ -619,7 +619,7 @@ const generateTestimonialsGrid = () => {
 const getTechnologyImage = (title) => {
   const images = {
     'Rotary Root Canal Treatment': '/public/technology-images/Rotary root canal.jpeg',
-    'Electronic Apex Locator': '/public/technology-images/Electronic apex locator.jpeg',
+    'Electronic Apex Locator': '/public/technology-images/Electronic apex locator.png',
     'Ultrasonic Endodontics': '/public/technology-images/Ultrasonic Endodontics.jpeg',
     'Implant Dentistry Equipment': '/public/technology-images/Implant dentistry.jpeg',
     'Class B Autoclave Sterilization': '/public/technology-images/Class B Autoclave Sterilization.jpeg',
