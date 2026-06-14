@@ -4731,3 +4731,150 @@ body.modal-open {
   }
 }
 
+/* ==========================================================================
+   TRUST STATISTICS BAR
+   ========================================================================== */
+.stats-bar-section {
+  padding: 1.5rem 0;
+  background-color: var(--color-bg-light, #f8fcfc);
+}
+
+.stats-bar-wrapper {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 181, 181, 0.06);
+  border: 1px solid rgba(0, 181, 181, 0.1);
+  overflow: hidden;
+  padding: 1.25rem 2rem;
+}
+
+.stats-bar-track {
+  display: flex;
+  width: 100%;
+}
+
+.stats-bar-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* Hide the cloned group on desktop */
+.stats-bar-group[aria-hidden="true"] {
+  display: none;
+}
+
+.stats-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  justify-content: center;
+  position: relative;
+}
+
+/* Vertical separator on desktop */
+.stats-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background-color: rgba(0, 181, 181, 0.15);
+}
+
+.stats-icon {
+  font-size: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-teal, #00b5b5);
+}
+
+.stats-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stats-number {
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--color-teal-dark, #0c5959);
+}
+
+.stats-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text-muted, #666);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Accent highlights for Google Star & Patient Satisfaction */
+.stats-item:nth-child(1) .stats-icon {
+  color: var(--color-orange, #fc7600);
+}
+.stats-item:nth-child(1) .stats-number {
+  color: var(--color-orange, #fc7600);
+}
+.stats-item:nth-child(5) .stats-number {
+  color: var(--color-orange, #fc7600);
+}
+
+/* Mobile responsive scrolling marquee */
+@media (max-width: 768px) {
+  .stats-bar-wrapper {
+    padding: 1.25rem 0;
+  }
+
+  .stats-bar-track {
+    display: flex;
+    width: max-content; /* Fit both groups side by side */
+    animation: stats-marquee-scroll 22s linear infinite;
+    touch-action: pan-y;
+  }
+
+  /* Show the cloned group on mobile for infinite loop */
+  .stats-bar-group[aria-hidden="true"] {
+    display: flex;
+  }
+
+  .stats-bar-group {
+    width: auto;
+    display: flex;
+    justify-content: space-around;
+    gap: 3.5rem;
+    padding: 0 1.75rem;
+  }
+
+  .stats-item {
+    flex: 0 0 auto;
+    width: max-content;
+  }
+
+  /* Remove vertical separator on mobile since they are scrolling */
+  .stats-item:not(:last-child)::after {
+    display: none;
+  }
+
+  /* Keyframe for marquee scrolling */
+  @keyframes stats-marquee-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%); /* Scroll exactly half of total track length (one full group) */
+    }
+  }
+
+  /* Pause animations on hover/active or via JS class */
+  .stats-bar-track:hover,
+  .stats-bar-track.paused {
+    animation-play-state: paused;
+  }
+}
+

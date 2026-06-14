@@ -1650,6 +1650,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ==========================================================================
+  // TRUST STATISTICS BAR TOUCH PAUSE LOGIC
+  // ==========================================================================
+  const statsTrack = document.querySelector('.stats-bar-track');
+  if (statsTrack) {
+    statsTrack.addEventListener('touchstart', () => {
+      statsTrack.classList.add('paused');
+    }, { passive: true });
+
+    statsTrack.addEventListener('touchend', () => {
+      statsTrack.classList.remove('paused');
+    }, { passive: true });
+
+    statsTrack.addEventListener('touchcancel', () => {
+      statsTrack.classList.remove('paused');
+    }, { passive: true });
+  }
+
 });
 
 // ==========================================================================
