@@ -528,6 +528,201 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
+    // Dental-Themed Particles Burst Generator
+    const triggerDentalParticles = (buttonEl) => {
+      const canvas = document.createElement('canvas');
+      canvas.className = 'success-particles-canvas';
+      document.body.appendChild(canvas);
+
+      const ctx = canvas.getContext('2d');
+      
+      const resizeCanvas = () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      };
+      resizeCanvas();
+
+      const rect = buttonEl.getBoundingClientRect();
+      const originX = rect.left + rect.width / 2;
+      const originY = rect.top + rect.height / 2;
+
+      const particles = [];
+      const particleCount = 30;
+      const types = ['tooth', 'smile', 'star'];
+      const colors = ['#00b5b5', '#fc7600', '#ffffff'];
+
+      for (let i = 0; i < particleCount; i++) {
+        const angle = -Math.PI / 2 + (Math.random() - 0.5) * (Math.PI / 2.2);
+        const speed = 2.5 + Math.random() * 4.5;
+        particles.push({
+          x: originX,
+          y: originY,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed - 2.0,
+          radius: 5 + Math.random() * 5,
+          type: types[i % types.length],
+          color: colors[i % colors.length],
+          alpha: 1.0,
+          rotation: Math.random() * Math.PI * 2,
+          rotationSpeed: (Math.random() - 0.5) * 0.12,
+          gravity: 0.09 + Math.random() * 0.06
+        });
+      }
+
+      const drawTooth = (ctx, x, y, size) => {
+        ctx.beginPath();
+        const r = size;
+        ctx.moveTo(x, y - r/2);
+        ctx.bezierCurveTo(x - r/2, y - r, x - r, y - r/2, x - r, y);
+        ctx.bezierCurveTo(x - r, y + r/2, x - r/2, y + r, x - r/3, y + r);
+        ctx.bezierCurveTo(x - r/4, y + r, x - r/6, y + r/3, x, y + r/2);
+        ctx.bezierCurveTo(x + r/6, y + r/3, x + r/4, y + r, x + r/3, y + r);
+        ctx.bezierCurveTo(x + r/2, y + r, x + r, y + r/2, x + r, y);
+        ctx.bezierCurveTo(x + r, y - r/2, x + r/2, y - r, x, y - r/2);
+        ctx.closePath();
+      };
+
+      const drawSmile = (ctx, x, y, size) => {
+        ctx.beginPath();
+        const r = size;
+        ctx.arc(x, y - r/4, r, 0.1 * Math.PI, 0.9 * Math.PI);
+      };
+
+      const drawStar = (ctx, x, y, size) => {
+        ctx.beginPath();
+        const r = size;
+        ctx.moveTo(x, y - r);
+        ctx.quadraticCurveTo(x, y, x + r, y);
+        ctx.quadraticCurveTo(x, y, x, y + r);
+        ctx.quadraticCurveTo(x, y, x - r, y);
+        ctx.quadraticCurveTo(x, y, x, y - r);
+        ctx.closePath();
+      };
+
+      let animationFrameId;
+      const startTime = Date.now();
+      const duration = 1500;
+
+      const animate = () => {
+        const elapsed = Date.now() - startTime;
+        if (elapsed >= duration) {
+          cancelAnimationFrame(animationFrameId);
+          canvas.remove();
+          window.removeEventListener('resize', resizeCanvas);
+          return;
+        }
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += p.gravity;
+          p.rotation += p.rotationSpeed;
+          
+          const remainingTime = duration - elapsed;
+          if (remainingTime < 400) {
+            p.alpha = Math.max(0, remainingTime / 400);
+          }
+
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rotation);
+          ctx.globalAlpha = p.alpha;
+          ctx.strokeStyle = p.color;
+          ctx.lineWidth = 2.0;
+          
+          if (p.type === 'tooth') {
+            drawTooth(ctx, 0, 0, p.radius);
+            ctx.fillStyle = p.color === '#ffffff' ? 'rgba(255, 255, 255, 0.12)' : 'rgba(0, 181, 181, 0.05)';
+            ctx.fill();
+            ctx.stroke();
+          } else if (p.type === 'smile') {
+            drawSmile(ctx, 0, 0, p.radius * 1.1);
+            ctx.stroke();
+          } else {
+            drawStar(ctx, 0, 0, p.radius);
+            ctx.fillStyle = p.color;
+            ctx.fill();
+            ctx.stroke();
+          }
+          ctx.restore();
+        });
+
+        animationFrameId = requestAnimationFrame(animate);
+      };
+
+      animate();
+      window.addEventListener('resize', resizeCanvas);
+    };
+
+    // Animate 3-5 smile-shaped sparkles behind the modal
+    const triggerFloatingSmiles = () => {
+      const container = document.getElementById('modalSparklesContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      const smilesCount = 4;
+      const containerWidth = container.offsetWidth || window.innerWidth;
+      const containerHeight = container.offsetHeight || window.innerHeight;
+
+      const smileSvg = `
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <path d="M5 13 Q12 21 19 13" />
+        </svg>
+      `;
+
+      for (let i = 0; i < smilesCount; i++) {
+        const el = document.createElement('div');
+        el.className = 'smile-sparkle';
+        el.innerHTML = smileSvg;
+        
+        const leftOffset = (containerWidth / 2) + (Math.random() - 0.5) * 260 - 12;
+        const topOffset = (containerHeight / 2) + (Math.random() - 0.5) * 160 - 12;
+        
+        el.style.left = `${leftOffset}px`;
+        el.style.top = `${topOffset}px`;
+        el.style.animationDelay = `${i * 150}ms`;
+        
+        container.appendChild(el);
+      }
+    };
+
+    // SUCCESS MODAL EVENTS
+    const modalOverlay = document.getElementById('successModalOverlay');
+    const btnModalClose = document.getElementById('btnSuccessModalClose');
+    const backdrop = document.getElementById('successModalBackdrop');
+    const originalBtnText = btnText ? btnText.textContent : 'Book Consultation Session';
+
+    const closeModal = () => {
+      if (modalOverlay) {
+        modalOverlay.classList.remove('active');
+        setTimeout(() => {
+          modalOverlay.style.display = 'none';
+          
+          // Restore button from success morph state
+          if (submitBtn) {
+            submitBtn.classList.remove('btn-success-morph');
+            submitBtn.disabled = false;
+            if (btnText) {
+              btnText.textContent = originalBtnText;
+              btnText.style.display = 'inline';
+            }
+            if (btnSpinner) btnSpinner.style.display = 'none';
+          }
+        }, 400);
+      }
+    };
+
+    if (btnModalClose) btnModalClose.addEventListener('click', closeModal);
+    if (backdrop) backdrop.addEventListener('click', closeModal);
+    
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalOverlay && modalOverlay.style.display === 'flex') {
+        closeModal();
+      }
+    });
+
     // Form Submit Handler
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -592,6 +787,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      const submitStartTime = Date.now();
+
       if (submitBtn) submitBtn.disabled = true;
       if (btnText) btnText.style.display = 'none';
       if (btnSpinner) btnSpinner.style.display = 'inline-block';
@@ -615,42 +812,67 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .then(res => res.json())
       .then(data => {
-        if (data.status === 'success') {
-          form.style.display = 'none';
-          const successBlock = document.getElementById('bookingFormSuccess');
-          if (successBlock) {
-            successBlock.style.display = 'block';
+        const elapsed = Date.now() - submitStartTime;
+        const delay = Math.max(0, 1000 - elapsed);
+        
+        setTimeout(() => {
+          if (data.status === 'success') {
+            // 1. Morph Button to Success State
+            if (btnSpinner) btnSpinner.style.display = 'none';
+            if (btnText) {
+              btnText.textContent = '✓ Appointment Submitted';
+              btnText.style.display = 'inline';
+            }
+            if (submitBtn) {
+              submitBtn.classList.add('btn-success-morph');
+              submitBtn.disabled = true;
+            }
+
+            // 2. Play Dental Particles Burst
+            triggerDentalParticles(submitBtn);
+
+            // 3. Trigger modal display with scale/fade-in after 1.2s delay
+            setTimeout(() => {
+              if (modalOverlay) {
+                modalOverlay.style.display = 'flex';
+                modalOverlay.offsetHeight;
+                modalOverlay.classList.add('active');
+                triggerFloatingSmiles();
+              }
+              
+              form.reset();
+              setBookingMode('Consultation');
+            }, 1200);
+
+            try {
+              const submission = {
+                name: fullName,
+                phone: phone,
+                email: email,
+                date: dateVal,
+                time: timeVal,
+                service: serviceVal,
+                notes: msgVal,
+                bookingMode: activeMode,
+                timestamp: new Date().toISOString()
+              };
+              const existing = JSON.parse(localStorage.getItem('apex_appointments') || '[]');
+              existing.push(submission);
+              localStorage.setItem('apex_appointments', JSON.stringify(existing));
+            } catch(err) {
+              console.error('Error saving backup to localStorage:', err);
+            }
+          } else {
+            showSubmitError(data.message || 'The selected slot was taken. Please select another slot.');
+            if (submitBtn) submitBtn.disabled = false;
+            if (btnText) btnText.style.display = 'inline';
+            if (btnSpinner) btnSpinner.style.display = 'none';
           }
-          form.reset();
-          setBookingMode('Consultation');
-          
-          try {
-            const submission = {
-              name: fullName,
-              phone: phone,
-              email: email,
-              date: dateVal,
-              time: timeVal,
-              service: serviceVal,
-              notes: msgVal,
-              bookingMode: activeMode,
-              timestamp: new Date().toISOString()
-            };
-            const existing = JSON.parse(localStorage.getItem('apex_appointments') || '[]');
-            existing.push(submission);
-            localStorage.setItem('apex_appointments', JSON.stringify(existing));
-          } catch(err) {
-            console.error('Error saving backup to localStorage:', err);
-          }
-        } else {
-          showSubmitError(data.message || 'The selected slot was taken. Please select another slot.');
-        }
+        }, delay);
       })
       .catch(err => {
         console.error('Booking submission error:', err);
         showSubmitError('A network error occurred. Please check your internet connection and try again.');
-      })
-      .finally(() => {
         if (submitBtn) submitBtn.disabled = false;
         if (btnText) btnText.style.display = 'inline';
         if (btnSpinner) btnSpinner.style.display = 'none';
