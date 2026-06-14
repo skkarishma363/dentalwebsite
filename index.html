@@ -17,7 +17,9 @@
   
   <!-- Stylesheets -->
   <link rel="stylesheet" href="/src/css/style.css">
-  
+  <!-- Preload first Before & After images -->
+    <link rel="preload" href="/public/before&after/after1_900.webp" as="image" imagesrcset="/public/before&after/after1_450.webp 450w, /public/before&after/after1_900.webp 900w" imagesizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw">
+    <link rel="preload" href="/public/before&after/before1_900.webp" as="image" imagesrcset="/public/before&after/before1_450.webp 450w, /public/before&after/before1_900.webp 900w" imagesizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw">
   
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="16x16" href="/src/images/favicon-16x16.png?v=2">
@@ -616,144 +618,202 @@
       <div class="transformations-track-wrapper">
         <div class="transformations-track">
           
-      <div class="transformation-card" data-index="0">
-        <div class="transformation-slider-wrapper">
-          <!-- After Image -->
-          <div class="transformation-image transformation-after">
-            <img class="lazy-load" data-src="/public/before&after/after1.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3C/svg%3E" alt="Root Canal Treatment After">
-          </div>
-          <!-- Before Image -->
-          <div class="transformation-image transformation-before" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%)">
-            <img class="lazy-load" data-src="/public/before&after/before1.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3C/svg%3E" alt="Root Canal Treatment Before">
-          </div>
-          <!-- Labels -->
-          <span class="transformation-label label-before">Before</span>
-          <span class="transformation-label label-after">After</span>
-          <!-- Slider Handle -->
-          <div class="transformation-handle" style="left: 50%">
-            <div class="transformation-handle-line"></div>
-            <div class="transformation-handle-button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:block; margin:auto;"><path d="m18 8 4 4-4 4M6 8l-4 4 4 4M2 12h20"/></svg>
+        <div class="transformation-card" data-index="0">
+          <div class="transformation-slider-wrapper">
+            <!-- After Image (Loaded Immediately) -->
+            <div class="transformation-image transformation-after">
+              <img class="loaded" 
+                   src="/public/before&after/after1_900.webp" 
+                   srcset="/public/before&after/after1_450.webp 450w, /public/before&after/after1_900.webp 900w"
+                   sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                   alt="Root Canal Treatment After">
+            </div>
+            <!-- Before Image (Loaded Immediately) -->
+            <div class="transformation-image transformation-before" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%)">
+              <img class="loaded" 
+                   src="/public/before&after/before1_900.webp" 
+                   srcset="/public/before&after/before1_450.webp 450w, /public/before&after/before1_900.webp 900w"
+                   sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                   alt="Root Canal Treatment Before">
+            </div>
+            <!-- Labels -->
+            <span class="transformation-label label-before">Before</span>
+            <span class="transformation-label label-after">After</span>
+            <!-- Slider Handle -->
+            <div class="transformation-handle" style="left: 50%">
+              <div class="transformation-handle-line"></div>
+              <div class="transformation-handle-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:block; margin:auto;"><path d="m18 8 4 4-4 4M6 8l-4 4 4 4M2 12h20"/></svg>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    
-      <div class="transformation-card" data-index="1">
-        <div class="transformation-slider-wrapper">
-          <!-- After Image -->
-          <div class="transformation-image transformation-after">
-            <img class="lazy-load" data-src="/public/before&after/after2.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3C/svg%3E" alt="Gum Treatments After">
-          </div>
-          <!-- Before Image -->
-          <div class="transformation-image transformation-before" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%)">
-            <img class="lazy-load" data-src="/public/before&after/before2.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3C/svg%3E" alt="Gum Treatments Before">
-          </div>
-          <!-- Labels -->
-          <span class="transformation-label label-before">Before</span>
-          <span class="transformation-label label-after">After</span>
-          <!-- Slider Handle -->
-          <div class="transformation-handle" style="left: 50%">
-            <div class="transformation-handle-line"></div>
-            <div class="transformation-handle-button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:block; margin:auto;"><path d="m18 8 4 4-4 4M6 8l-4 4 4 4M2 12h20"/></svg>
+      
+        <div class="transformation-card" data-index="1">
+          <div class="transformation-slider-wrapper">
+            <!-- After Image (Lazy Loaded) -->
+            <div class="transformation-image transformation-after skeleton">
+              <img class="lazy-load" 
+                   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" 
+                   data-src="/public/before&after/after2_900.webp" 
+                   data-srcset="/public/before&after/after2_450.webp 450w, /public/before&after/after2_900.webp 900w"
+                   sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                   alt="Gum Treatments After">
+            </div>
+            <!-- Before Image (Lazy Loaded) -->
+            <div class="transformation-image transformation-before skeleton" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%)">
+              <img class="lazy-load" 
+                   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" 
+                   data-src="/public/before&after/before2_900.webp" 
+                   data-srcset="/public/before&after/before2_450.webp 450w, /public/before&after/before2_900.webp 900w"
+                   sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                   alt="Gum Treatments Before">
+            </div>
+            <!-- Labels -->
+            <span class="transformation-label label-before">Before</span>
+            <span class="transformation-label label-after">After</span>
+            <!-- Slider Handle -->
+            <div class="transformation-handle" style="left: 50%">
+              <div class="transformation-handle-line"></div>
+              <div class="transformation-handle-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:block; margin:auto;"><path d="m18 8 4 4-4 4M6 8l-4 4 4 4M2 12h20"/></svg>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    
-      <div class="transformation-card" data-index="2">
-        <div class="transformation-slider-wrapper">
-          <!-- After Image -->
-          <div class="transformation-image transformation-after">
-            <img class="lazy-load" data-src="/public/before&after/after6.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3C/svg%3E" alt="Dental Crowns & Bridges After">
-          </div>
-          <!-- Before Image -->
-          <div class="transformation-image transformation-before" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%)">
-            <img class="lazy-load" data-src="/public/before&after/before6.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3C/svg%3E" alt="Dental Crowns & Bridges Before">
-          </div>
-          <!-- Labels -->
-          <span class="transformation-label label-before">Before</span>
-          <span class="transformation-label label-after">After</span>
-          <!-- Slider Handle -->
-          <div class="transformation-handle" style="left: 50%">
-            <div class="transformation-handle-line"></div>
-            <div class="transformation-handle-button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:block; margin:auto;"><path d="m18 8 4 4-4 4M6 8l-4 4 4 4M2 12h20"/></svg>
+      
+        <div class="transformation-card" data-index="2">
+          <div class="transformation-slider-wrapper">
+            <!-- After Image (Lazy Loaded) -->
+            <div class="transformation-image transformation-after skeleton">
+              <img class="lazy-load" 
+                   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" 
+                   data-src="/public/before&after/after6_900.webp" 
+                   data-srcset="/public/before&after/after6_450.webp 450w, /public/before&after/after6_900.webp 900w"
+                   sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                   alt="Dental Crowns & Bridges After">
+            </div>
+            <!-- Before Image (Lazy Loaded) -->
+            <div class="transformation-image transformation-before skeleton" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%)">
+              <img class="lazy-load" 
+                   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" 
+                   data-src="/public/before&after/before6_900.webp" 
+                   data-srcset="/public/before&after/before6_450.webp 450w, /public/before&after/before6_900.webp 900w"
+                   sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                   alt="Dental Crowns & Bridges Before">
+            </div>
+            <!-- Labels -->
+            <span class="transformation-label label-before">Before</span>
+            <span class="transformation-label label-after">After</span>
+            <!-- Slider Handle -->
+            <div class="transformation-handle" style="left: 50%">
+              <div class="transformation-handle-line"></div>
+              <div class="transformation-handle-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:block; margin:auto;"><path d="m18 8 4 4-4 4M6 8l-4 4 4 4M2 12h20"/></svg>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    
-      <div class="transformation-card" data-index="3">
-        <div class="transformation-slider-wrapper">
-          <!-- After Image -->
-          <div class="transformation-image transformation-after">
-            <img class="lazy-load" data-src="/public/before&after/after4.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3C/svg%3E" alt="Dental Implants After">
-          </div>
-          <!-- Before Image -->
-          <div class="transformation-image transformation-before" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%)">
-            <img class="lazy-load" data-src="/public/before&after/before4.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3C/svg%3E" alt="Dental Implants Before">
-          </div>
-          <!-- Labels -->
-          <span class="transformation-label label-before">Before</span>
-          <span class="transformation-label label-after">After</span>
-          <!-- Slider Handle -->
-          <div class="transformation-handle" style="left: 50%">
-            <div class="transformation-handle-line"></div>
-            <div class="transformation-handle-button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:block; margin:auto;"><path d="m18 8 4 4-4 4M6 8l-4 4 4 4M2 12h20"/></svg>
+      
+        <div class="transformation-card" data-index="3">
+          <div class="transformation-slider-wrapper">
+            <!-- After Image (Lazy Loaded) -->
+            <div class="transformation-image transformation-after skeleton">
+              <img class="lazy-load" 
+                   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" 
+                   data-src="/public/before&after/after4_900.webp" 
+                   data-srcset="/public/before&after/after4_450.webp 450w, /public/before&after/after4_900.webp 900w"
+                   sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                   alt="Dental Implants After">
+            </div>
+            <!-- Before Image (Lazy Loaded) -->
+            <div class="transformation-image transformation-before skeleton" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%)">
+              <img class="lazy-load" 
+                   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" 
+                   data-src="/public/before&after/before4_900.webp" 
+                   data-srcset="/public/before&after/before4_450.webp 450w, /public/before&after/before4_900.webp 900w"
+                   sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                   alt="Dental Implants Before">
+            </div>
+            <!-- Labels -->
+            <span class="transformation-label label-before">Before</span>
+            <span class="transformation-label label-after">After</span>
+            <!-- Slider Handle -->
+            <div class="transformation-handle" style="left: 50%">
+              <div class="transformation-handle-line"></div>
+              <div class="transformation-handle-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:block; margin:auto;"><path d="m18 8 4 4-4 4M6 8l-4 4 4 4M2 12h20"/></svg>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    
-      <div class="transformation-card" data-index="4">
-        <div class="transformation-slider-wrapper">
-          <!-- After Image -->
-          <div class="transformation-image transformation-after">
-            <img class="lazy-load" data-src="/public/before&after/after5.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3C/svg%3E" alt="Dental Crowns & Bridges After">
-          </div>
-          <!-- Before Image -->
-          <div class="transformation-image transformation-before" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%)">
-            <img class="lazy-load" data-src="/public/before&after/before5.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3C/svg%3E" alt="Dental Crowns & Bridges Before">
-          </div>
-          <!-- Labels -->
-          <span class="transformation-label label-before">Before</span>
-          <span class="transformation-label label-after">After</span>
-          <!-- Slider Handle -->
-          <div class="transformation-handle" style="left: 50%">
-            <div class="transformation-handle-line"></div>
-            <div class="transformation-handle-button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:block; margin:auto;"><path d="m18 8 4 4-4 4M6 8l-4 4 4 4M2 12h20"/></svg>
+      
+        <div class="transformation-card" data-index="4">
+          <div class="transformation-slider-wrapper">
+            <!-- After Image (Lazy Loaded) -->
+            <div class="transformation-image transformation-after skeleton">
+              <img class="lazy-load" 
+                   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" 
+                   data-src="/public/before&after/after5_900.webp" 
+                   data-srcset="/public/before&after/after5_450.webp 450w, /public/before&after/after5_900.webp 900w"
+                   sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                   alt="Dental Crowns & Bridges After">
+            </div>
+            <!-- Before Image (Lazy Loaded) -->
+            <div class="transformation-image transformation-before skeleton" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%)">
+              <img class="lazy-load" 
+                   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" 
+                   data-src="/public/before&after/before5_900.webp" 
+                   data-srcset="/public/before&after/before5_450.webp 450w, /public/before&after/before5_900.webp 900w"
+                   sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                   alt="Dental Crowns & Bridges Before">
+            </div>
+            <!-- Labels -->
+            <span class="transformation-label label-before">Before</span>
+            <span class="transformation-label label-after">After</span>
+            <!-- Slider Handle -->
+            <div class="transformation-handle" style="left: 50%">
+              <div class="transformation-handle-line"></div>
+              <div class="transformation-handle-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:block; margin:auto;"><path d="m18 8 4 4-4 4M6 8l-4 4 4 4M2 12h20"/></svg>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    
-      <div class="transformation-card" data-index="5">
-        <div class="transformation-slider-wrapper">
-          <!-- After Image -->
-          <div class="transformation-image transformation-after">
-            <img class="lazy-load" data-src="/public/before&after/after3.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3C/svg%3E" alt="Smile Designing After">
-          </div>
-          <!-- Before Image -->
-          <div class="transformation-image transformation-before" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%)">
-            <img class="lazy-load" data-src="/public/before&after/before3.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3C/svg%3E" alt="Smile Designing Before">
-          </div>
-          <!-- Labels -->
-          <span class="transformation-label label-before">Before</span>
-          <span class="transformation-label label-after">After</span>
-          <!-- Slider Handle -->
-          <div class="transformation-handle" style="left: 50%">
-            <div class="transformation-handle-line"></div>
-            <div class="transformation-handle-button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:block; margin:auto;"><path d="m18 8 4 4-4 4M6 8l-4 4 4 4M2 12h20"/></svg>
+      
+        <div class="transformation-card" data-index="5">
+          <div class="transformation-slider-wrapper">
+            <!-- After Image (Lazy Loaded) -->
+            <div class="transformation-image transformation-after skeleton">
+              <img class="lazy-load" 
+                   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" 
+                   data-src="/public/before&after/after3_900.webp" 
+                   data-srcset="/public/before&after/after3_450.webp 450w, /public/before&after/after3_900.webp 900w"
+                   sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                   alt="Smile Designing After">
+            </div>
+            <!-- Before Image (Lazy Loaded) -->
+            <div class="transformation-image transformation-before skeleton" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%)">
+              <img class="lazy-load" 
+                   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" 
+                   data-src="/public/before&after/before3_900.webp" 
+                   data-srcset="/public/before&after/before3_450.webp 450w, /public/before&after/before3_900.webp 900w"
+                   sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                   alt="Smile Designing Before">
+            </div>
+            <!-- Labels -->
+            <span class="transformation-label label-before">Before</span>
+            <span class="transformation-label label-after">After</span>
+            <!-- Slider Handle -->
+            <div class="transformation-handle" style="left: 50%">
+              <div class="transformation-handle-line"></div>
+              <div class="transformation-handle-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:block; margin:auto;"><path d="m18 8 4 4-4 4M6 8l-4 4 4 4M2 12h20"/></svg>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    
+      
         </div>
       </div>
       <button class="transformation-nav-btn nav-btn-next" aria-label="Next Case">
@@ -1704,8 +1764,9 @@
       <p class="text-muted">Stay updated with diagnostic dental articles, oral health tips, and guides written by our doctors.</p>
     </div>
     
-    <div class="blogs-grid">
-      
+    <div class="blogs-carousel-wrapper">
+      <div class="blogs-grid">
+        
       <div class="blog-card">
         <div class="blog-card-image">
           <img src="/public/blog-images/blog_hygiene.png" alt="5 Essential Oral Hygiene Tips for a Healthy Smile" loading="lazy">
@@ -1770,6 +1831,8 @@
         </div>
       </div>
     
+      </div>
+      <div class="blog-carousel-indicators" id="blogCarouselIndicators"></div>
     </div>
 
     <div class="text-center" style="margin-top: var(--space-lg);">

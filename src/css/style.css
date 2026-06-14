@@ -1522,6 +1522,21 @@ p {
   pointer-events: none;
 }
 
+@keyframes transformation-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.transformation-image.skeleton {
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: transformation-shimmer 1.5s infinite linear;
+}
+
 .transformation-image img {
   width: 100%;
   height: 100%;
@@ -3964,7 +3979,7 @@ p {
   }
   
   .testimonial-slide {
-    min-width: calc(50% - 0.5rem);
+    min-width: 100%;
   }
   
   .before-after-slider {
@@ -4647,3 +4662,72 @@ body.modal-open {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   MOBILE RESPONSIVE CAROUSELS (TESTIMONIALS & BLOGS)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .testimonials-carousel-wrapper,
+  .blogs-carousel-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    touch-action: pan-y;
+  }
+  
+  .testimonials-track {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch !important;
+    width: 100%;
+    transition: transform 0.4s ease-in-out;
+    gap: 0 !important;
+  }
+  
+  .testimonial-slide {
+    flex: 0 0 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    transform: none !important; /* Disable translateY scale/hover effect on mobile */
+  }
+
+  .blogs-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    width: 100%;
+    transition: transform 0.4s ease-in-out;
+    gap: 0 !important;
+  }
+
+  .blog-card {
+    flex: 0 0 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    transform: none !important; /* Disable translateY scale/hover effect on mobile */
+  }
+  
+  /* Ensure 4th card displays in mobile carousel */
+  #blog .blog-card-extra {
+    display: flex !important;
+  }
+}
+
+.blog-carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .blog-carousel-indicators {
+    display: flex;
+  }
+}
+

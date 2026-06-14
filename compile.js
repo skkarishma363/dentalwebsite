@@ -701,9 +701,9 @@ const generateSmileTransformationsGallery = () => {
   const files = fs.readdirSync(dirPath);
   const casesMap = {};
   
-  // Find matching pairs, e.g. before1.png and after1.png
+  // Find matching pairs, e.g. before1_900.webp and after1_900.webp
   files.forEach(file => {
-    const match = file.match(/^(before|after)(\d+)\.(jpg|jpeg|png)$/i);
+    const match = file.match(/^(before|after)(\d+)_900\.webp$/i);
     if (match) {
       const type = match[1].toLowerCase(); // "before" or "after"
       const caseNum = match[2]; // e.g. "1"
@@ -751,30 +751,82 @@ const generateSmileTransformationsGallery = () => {
   cases.forEach((c, idx) => {
     const caseNum = c.id.replace('case', '');
     const details = caseDetails[caseNum] || { treatment: 'Smile Transformation', desc: 'Real clinical before and after patient dental result.' };
-    cardsHTML += `
-      <div class="transformation-card" data-index="${idx}">
-        <div class="transformation-slider-wrapper">
-          <!-- After Image -->
-          <div class="transformation-image transformation-after">
-            <img class="lazy-load" data-src="${c.after}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3C/svg%3E" alt="${details.treatment} After">
-          </div>
-          <!-- Before Image -->
-          <div class="transformation-image transformation-before" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%)">
-            <img class="lazy-load" data-src="${c.before}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3C/svg%3E" alt="${details.treatment} Before">
-          </div>
-          <!-- Labels -->
-          <span class="transformation-label label-before">Before</span>
-          <span class="transformation-label label-after">After</span>
-          <!-- Slider Handle -->
-          <div class="transformation-handle" style="left: 50%">
-            <div class="transformation-handle-line"></div>
-            <div class="transformation-handle-button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:block; margin:auto;"><path d="m18 8 4 4-4 4M6 8l-4 4 4 4M2 12h20"/></svg>
+    
+    // Derive responsive mobile sizes (450px wide) from 900px wide paths
+    const before_450 = c.before.replace('_900.webp', '_450.webp');
+    const after_450 = c.after.replace('_900.webp', '_450.webp');
+    
+    if (idx === 0) {
+      // First card: Load instantly, no lazy-load, no skeleton placeholder
+      cardsHTML += `
+        <div class="transformation-card" data-index="${idx}">
+          <div class="transformation-slider-wrapper">
+            <!-- After Image (Loaded Immediately) -->
+            <div class="transformation-image transformation-after">
+              <img class="loaded" 
+                   src="${c.after}" 
+                   srcset="${after_450} 450w, ${c.after} 900w"
+                   sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                   alt="${details.treatment} After">
+            </div>
+            <!-- Before Image (Loaded Immediately) -->
+            <div class="transformation-image transformation-before" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%)">
+              <img class="loaded" 
+                   src="${c.before}" 
+                   srcset="${before_450} 450w, ${c.before} 900w"
+                   sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                   alt="${details.treatment} Before">
+            </div>
+            <!-- Labels -->
+            <span class="transformation-label label-before">Before</span>
+            <span class="transformation-label label-after">After</span>
+            <!-- Slider Handle -->
+            <div class="transformation-handle" style="left: 50%">
+              <div class="transformation-handle-line"></div>
+              <div class="transformation-handle-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:block; margin:auto;"><path d="m18 8 4 4-4 4M6 8l-4 4 4 4M2 12h20"/></svg>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    `;
+      `;
+    } else {
+      // Remaining cards: Defer loading with custom shimmer skeleton placeholder
+      cardsHTML += `
+        <div class="transformation-card" data-index="${idx}">
+          <div class="transformation-slider-wrapper">
+            <!-- After Image (Lazy Loaded) -->
+            <div class="transformation-image transformation-after skeleton">
+              <img class="lazy-load" 
+                   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" 
+                   data-src="${c.after}" 
+                   data-srcset="${after_450} 450w, ${c.after} 900w"
+                   sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                   alt="${details.treatment} After">
+            </div>
+            <!-- Before Image (Lazy Loaded) -->
+            <div class="transformation-image transformation-before skeleton" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%)">
+              <img class="lazy-load" 
+                   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3C/svg%3E" 
+                   data-src="${c.before}" 
+                   data-srcset="${before_450} 450w, ${c.before} 900w"
+                   sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw"
+                   alt="${details.treatment} Before">
+            </div>
+            <!-- Labels -->
+            <span class="transformation-label label-before">Before</span>
+            <span class="transformation-label label-after">After</span>
+            <!-- Slider Handle -->
+            <div class="transformation-handle" style="left: 50%">
+              <div class="transformation-handle-line"></div>
+              <div class="transformation-handle-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:block; margin:auto;"><path d="m18 8 4 4-4 4M6 8l-4 4 4 4M2 12h20"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
   });
   
   return `
@@ -818,7 +870,9 @@ const buildHomePage = () => {
     homeHTML,
     "Apex Dental Hospital | Bringing Life To Your Smile",
     "Apex Dental Hospital provides advanced dental treatments including implants, root canals, braces, aligners, cosmetic dentistry, and family dental care with expert specialists and modern technology.",
-    '',
+    `<!-- Preload first Before & After images -->
+    <link rel="preload" href="/public/before&after/after1_900.webp" as="image" imagesrcset="/public/before&after/after1_450.webp 450w, /public/before&after/after1_900.webp 900w" imagesizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw">
+    <link rel="preload" href="/public/before&after/before1_900.webp" as="image" imagesrcset="/public/before&after/before1_450.webp 450w, /public/before&after/before1_900.webp 900w" imagesizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw">`,
     '<script src="/src/js/slider.js"></script>',
     getLocalBusinessSchemaHTML() + getFAQSchemaHTML(homeData.generalFaq)
   );

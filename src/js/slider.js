@@ -286,15 +286,37 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             const image = entry.target;
-            image.src = image.dataset.src;
+            
+            // Set up load listener before changing sources
             image.onload = () => {
               image.classList.add('loaded');
+              const wrapper = image.closest('.transformation-image');
+              if (wrapper) {
+                wrapper.classList.remove('skeleton');
+              }
             };
+            
+            // Check in case image was already cached
+            if (image.complete && image.naturalWidth > 0) {
+              image.classList.add('loaded');
+              const wrapper = image.closest('.transformation-image');
+              if (wrapper) {
+                wrapper.classList.remove('skeleton');
+              }
+            }
+            
+            if (image.dataset.srcset) {
+              image.srcset = image.dataset.srcset;
+            }
+            if (image.dataset.src) {
+              image.src = image.dataset.src;
+            }
+            
             imageObserver.unobserve(image);
           }
         });
       }, {
-        rootMargin: '100px 0px', // Pre-load slightly before coming in view
+        rootMargin: '200px 0px', // Pre-load slightly before coming in view
         threshold: 0.01
       });
       
@@ -302,8 +324,19 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       // Fallback
       lazyImages.forEach(image => {
-        image.src = image.dataset.src;
-        image.classList.add('loaded');
+        image.onload = () => {
+          image.classList.add('loaded');
+          const wrapper = image.closest('.transformation-image');
+          if (wrapper) {
+            wrapper.classList.remove('skeleton');
+          }
+        };
+        if (image.dataset.srcset) {
+          image.srcset = image.dataset.srcset;
+        }
+        if (image.dataset.src) {
+          image.src = image.dataset.src;
+        }
       });
     }
   };
