@@ -463,7 +463,7 @@ p {
    ========================================================================== */
 .hero {
   padding-top: var(--space-xl);
-  padding-bottom: var(--space-xl);
+  padding-bottom: 4.25rem;
   overflow: hidden;
   background-color: var(--color-bg-primary);
   position: relative;
@@ -3667,16 +3667,42 @@ p {
   h1 { font-size: 2.25rem; }
   h2 { font-size: 1.75rem; }
   
+  .hero-grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: var(--space-md);
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
   .hero-image-container {
-    max-width: 380px;
+    max-width: 350px;
+    border-radius: 20px;
+  }
+  
+  .floating-card {
+    padding: 0.55rem 0.9rem;
+    gap: 0.5rem;
+  }
+  
+  .floating-card-1 {
+    left: 2%;
+    top: 12%;
+  }
+  
+  .floating-card-2 {
+    right: 2%;
+    bottom: 22%;
+  }
+  
+  .floating-card-3 {
+    left: 8%;
+    bottom: 4%;
   }
   
   .booking-section {
     margin-top: 28px;
-  }
-  
-  .hero-content h1 {
-    font-size: 2.75rem;
   }
   
   .why-slide {
@@ -3984,6 +4010,32 @@ p {
   
   .before-after-slider {
     aspect-ratio: 4/3;
+  }
+
+  .floating-card {
+    padding: 0.4rem 0.65rem;
+    gap: 0.4rem;
+  }
+  
+  .floating-card-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 0.85rem;
+  }
+  
+  .floating-card-1 {
+    left: -4%;
+    top: 8%;
+  }
+  
+  .floating-card-2 {
+    right: -4%;
+    bottom: 22%;
+  }
+  
+  .floating-card-3 {
+    left: 4%;
+    bottom: 4%;
   }
 }
 
@@ -4735,17 +4787,20 @@ body.modal-open {
    TRUST STATISTICS BAR
    ========================================================================== */
 .stats-bar-section {
-  padding: 1.5rem 0;
-  background-color: var(--color-bg-light, #f8fcfc);
+  padding: 0;
+  margin-top: -2.25rem; /* Pulled up to overlay on the hero section's bottom edge */
+  background-color: transparent;
+  position: relative;
+  z-index: 20;
 }
 
 .stats-bar-wrapper {
   background-color: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 181, 181, 0.06);
-  border: 1px solid rgba(0, 181, 181, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 181, 181, 0.08);
+  border: 1px solid rgba(0, 181, 181, 0.12);
   overflow: hidden;
-  padding: 1.25rem 2rem;
+  padding: 1rem 2rem; /* Reduced vertical padding for compactness */
 }
 
 .stats-bar-track {
@@ -4787,11 +4842,19 @@ body.modal-open {
 }
 
 .stats-icon {
-  font-size: 1.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--color-teal, #00b5b5);
+}
+
+.stats-svg-icon {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  flex-shrink: 0;
 }
 
 .stats-info {
@@ -4800,14 +4863,14 @@ body.modal-open {
 }
 
 .stats-number {
-  font-size: 1.6rem;
+  font-size: 1.5rem; /* Sized down slightly for a more compact and premium feel */
   font-weight: 800;
   line-height: 1.2;
   color: var(--color-teal-dark, #0c5959);
 }
 
 .stats-label {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 500;
   color: var(--color-text-muted, #666);
   text-transform: uppercase;
@@ -4815,10 +4878,13 @@ body.modal-open {
 }
 
 /* Accent highlights for Google Star & Patient Satisfaction */
-.stats-item:nth-child(1) .stats-icon {
+.stats-item:nth-child(1) .stats-svg-icon {
   color: var(--color-orange, #fc7600);
 }
 .stats-item:nth-child(1) .stats-number {
+  color: var(--color-orange, #fc7600);
+}
+.stats-item:nth-child(5) .stats-svg-icon {
   color: var(--color-orange, #fc7600);
 }
 .stats-item:nth-child(5) .stats-number {
@@ -4827,8 +4893,16 @@ body.modal-open {
 
 /* Mobile responsive scrolling marquee */
 @media (max-width: 768px) {
+  .stats-bar-section {
+    margin-top: 0; /* Clear negative margin on mobile */
+    padding: 1rem 0;
+    background-color: var(--color-bg-light, #f8fcfc);
+  }
+
   .stats-bar-wrapper {
-    padding: 1.25rem 0;
+    padding: 0.85rem 0; /* Compact on mobile */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 181, 181, 0.04);
   }
 
   .stats-bar-track {
