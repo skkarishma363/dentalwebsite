@@ -936,44 +936,33 @@ p {
 /* ICON & TOP HEADER */
 .success-modal-icon-wrapper {
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: auto;
+  height: auto;
   margin: 0 auto 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-teal);
 }
 
-.success-modal-tooth-icon {
-  width: 60px;
-  height: 60px;
-  stroke: var(--color-teal);
-  fill: rgba(0, 181, 181, 0.05);
-  animation: pulse-icon 2s infinite ease-in-out;
+.success-modal-tooth-img {
+  width: 80px;
+  height: auto;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: transform 300ms ease, opacity 300ms ease;
   z-index: 2;
 }
 
-.success-modal-icon-wrapper .icon-ring {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 2px dashed rgba(0, 181, 181, 0.3);
-  border-radius: var(--radius-full);
-  animation: rotate-ring 12s linear infinite;
-  z-index: 1;
+.success-modal-overlay.active .success-modal-tooth-img {
+  opacity: 1;
+  transform: scale(1);
 }
 
-@keyframes rotate-ring {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes pulse-icon {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+@media (max-width: 640px) {
+  .success-modal-card {
+    padding: 2rem 1.5rem;
+  }
 }
 
 /* MODAL TYPOGRAPHY */
@@ -4384,6 +4373,10 @@ p {
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
+  }
+
+  .success-modal-tooth-img {
+    width: 65px;
   }
   
   .testimonial-slide {
