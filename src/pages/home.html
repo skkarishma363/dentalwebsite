@@ -220,6 +220,15 @@
         </div>
 
         <form id="heroBookingForm" class="booking-form">
+          <!-- Booking Mode Toggle -->
+          <div class="booking-toggle-wrapper">
+            <div class="booking-toggle-container" id="bookingToggleContainer">
+              <div class="booking-toggle-indicator"></div>
+              <button type="button" class="booking-toggle-btn active" id="btnModeConsultation" data-mode="Consultation">Consultation</button>
+              <button type="button" class="booking-toggle-btn" id="btnModeTreatment" data-mode="Selected Treatment">Select Treatment</button>
+            </div>
+          </div>
+
           <div>
             <label for="bFirstName" class="form-label">First Name*</label>
             <input type="text" id="bFirstName" class="form-input" required placeholder="Enter first name">
@@ -236,7 +245,7 @@
             <label for="bEmail" class="form-label">Email Address*</label>
             <input type="email" id="bEmail" class="form-input" required placeholder="Enter email address">
           </div>
-          <div>
+          <div class="treatment-collapse-wrapper collapsed" id="treatmentCollapseWrapper" style="display: none;">
             <label for="bTreatment" class="form-label">Required Treatment*</label>
             <select id="bTreatment" class="form-input" required>
               <option value="" disabled selected>Select treatment</option>

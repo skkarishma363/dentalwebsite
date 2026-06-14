@@ -352,6 +352,71 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnSpinner = submitBtn ? submitBtn.querySelector('.btn-spinner') : null;
     const errorBanner = document.getElementById('bookingFormError');
 
+    // SEGMENTED TOGGLE SWITCH LOGIC
+    const toggleContainer = document.getElementById('bookingToggleContainer');
+    const btnConsultation = document.getElementById('btnModeConsultation');
+    const btnTreatment = document.getElementById('btnModeTreatment');
+    const treatmentWrapper = document.getElementById('treatmentCollapseWrapper');
+    const treatmentSelect = form.querySelector('#bTreatment');
+    
+    let activeMode = 'Consultation'; // Default mode
+
+    // Initialize default value for Consultation mode
+    if (treatmentSelect) {
+      treatmentSelect.value = 'General Consultation';
+    }
+
+    const setBookingMode = (mode) => {
+      activeMode = mode;
+      
+      if (mode === 'Consultation') {
+        if (btnConsultation) btnConsultation.classList.add('active');
+        if (btnTreatment) btnTreatment.classList.remove('active');
+        if (toggleContainer) toggleContainer.classList.remove('treatment-active');
+        
+        if (treatmentWrapper) {
+          treatmentWrapper.classList.add('collapsed');
+        }
+        
+        if (treatmentSelect) {
+          treatmentSelect.value = 'General Consultation';
+          treatmentSelect.style.borderColor = '';
+        }
+      } else {
+        if (btnConsultation) btnConsultation.classList.remove('active');
+        if (btnTreatment) btnTreatment.classList.add('active');
+        if (toggleContainer) toggleContainer.classList.add('treatment-active');
+        
+        if (treatmentWrapper) {
+          treatmentWrapper.style.display = 'block';
+          treatmentWrapper.offsetHeight; // force reflow
+          treatmentWrapper.classList.remove('collapsed');
+        }
+        
+        if (treatmentSelect) {
+          treatmentSelect.value = '';
+          treatmentSelect.style.borderColor = '';
+        }
+      }
+    };
+
+    if (treatmentWrapper) {
+      treatmentWrapper.addEventListener('transitionend', (e) => {
+        if (e.propertyName === 'max-height') {
+          if (treatmentWrapper.classList.contains('collapsed')) {
+            treatmentWrapper.style.display = 'none';
+          }
+        }
+      });
+    }
+
+    if (btnConsultation) {
+      btnConsultation.addEventListener('click', () => setBookingMode('Consultation'));
+    }
+    if (btnTreatment) {
+      btnTreatment.addEventListener('click', () => setBookingMode('Selected Treatment'));
+    }
+
     // Set dynamic date restriction to today's date
     if (dateInput) {
       const today = new Date();
@@ -539,6 +604,7 @@ document.addEventListener('DOMContentLoaded', () => {
       formData.append('time', timeVal);
       formData.append('service', serviceVal);
       formData.append('notes', msgVal);
+      formData.append('bookingMode', activeMode);
 
       fetch(APPOINTMENT_SCRIPT_URL, {
         method: 'POST',
@@ -556,6 +622,7 @@ document.addEventListener('DOMContentLoaded', () => {
             successBlock.style.display = 'block';
           }
           form.reset();
+          setBookingMode('Consultation');
           
           try {
             const submission = {
@@ -566,6 +633,7 @@ document.addEventListener('DOMContentLoaded', () => {
               time: timeVal,
               service: serviceVal,
               notes: msgVal,
+              bookingMode: activeMode,
               timestamp: new Date().toISOString()
             };
             const existing = JSON.parse(localStorage.getItem('apex_appointments') || '[]');
