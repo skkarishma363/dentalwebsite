@@ -3745,12 +3745,26 @@ p {
 
 .floating-btn-call {
   background-color: var(--color-teal);
+  box-shadow: 0 4px 15px rgba(0, 181, 181, 0.3);
+  animation: call-pulse 3s infinite;
 }
 
 .floating-btn-call:hover {
   background-color: var(--color-teal-dark);
   transform: scale(1.1) translateY(-3px);
-  box-shadow: 0 6px 20px rgba(15, 118, 110, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 181, 181, 0.5);
+}
+
+@keyframes call-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 181, 181, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(0, 181, 181, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 181, 181, 0);
+  }
 }
 
 .floating-btn-whatsapp {
