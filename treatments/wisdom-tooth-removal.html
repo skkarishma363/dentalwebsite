@@ -375,17 +375,43 @@
       <p>Our team will contact you shortly.</p>
     </div>
 
-    <form id="tModalForm" class="t-modal-form">
+    <form id="tModalForm" class="booking-form t-modal-form">
       <div class="form-group">
         <label for="tModalName" class="form-label">Full Name*</label>
         <input type="text" id="tModalName" class="form-input" required placeholder="Enter your full name">
       </div>
       <div class="form-group">
-        <label for="tModalPhone" class="form-label">Phone Number*</label>
-        <input type="tel" id="tModalPhone" class="form-input" required placeholder="Enter your phone number">
+        <label for="tModalPhone" class="form-label">Mobile Number*</label>
+        <input type="tel" id="tModalPhone" class="form-input" required placeholder="Enter your mobile number">
+      </div>
+      <div class="form-group form-group-full">
+        <label for="tModalEmail" class="form-label">Email Address*</label>
+        <input type="email" id="tModalEmail" class="form-input" required placeholder="Enter your email address">
       </div>
       <div class="form-group">
-        <label for="tModalTreatment" class="form-label">Treatment Name</label>
+        <label for="tModalDate" class="form-label">Preferred Date*</label>
+        <input type="date" id="tModalDate" class="form-input" required>
+      </div>
+      <div class="form-group">
+        <label for="tModalTimeSlot" class="form-label">Available Time Slot*</label>
+        <select id="tModalTimeSlot" class="form-input" required>
+          <option value="" disabled selected>Select Available Time Slot</option>
+          <optgroup label="Morning Session">
+            <option value="9:30 AM">9:30 AM</option>
+            <option value="10:30 AM">10:30 AM</option>
+            <option value="11:30 AM">11:30 AM</option>
+            <option value="12:30 PM">12:30 PM</option>
+          </optgroup>
+          <optgroup label="Evening Session">
+            <option value="5:00 PM">5:00 PM</option>
+            <option value="6:00 PM">6:00 PM</option>
+            <option value="7:00 PM">7:00 PM</option>
+            <option value="8:00 PM">8:00 PM</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="form-group form-group-full">
+        <label for="tModalTreatment" class="form-label">Treatment Selection*</label>
         <!-- Pre-selected and disabled so users see the correct treatment -->
         <select id="tModalTreatment" class="form-input" disabled data-current-treatment="wisdom-tooth-removal">
           <option value="root-canal-treatment">Root Canal Treatment</option>
@@ -400,16 +426,12 @@
           <option value="emergency-dental-care">Emergency Dental Care</option>
         </select>
       </div>
-      <div class="form-group">
-        <label for="tModalDate" class="form-label">Preferred Date*</label>
-        <input type="date" id="tModalDate" class="form-input" required>
-      </div>
       <div class="form-group form-group-full">
         <label for="tModalMessage" class="form-label">Message (Optional)</label>
-        <textarea id="tModalMessage" class="form-input" placeholder="Briefly describe your symptoms or preferences"></textarea>
+        <textarea id="tModalMessage" class="form-input" placeholder="Briefly describe your symptoms or preferences" style="min-height: 80px;"></textarea>
       </div>
       <div class="t-modal-buttons form-group-full">
-        <button type="submit" class="btn btn-primary" id="tModalSubmitBtn">Submit Appointment Request</button>
+        <button type="submit" class="btn btn-primary" id="tModalSubmitBtn">Book Appointment</button>
         <button type="button" class="btn btn-secondary" id="tModalCancelBtn">Cancel</button>
       </div>
     </form>
@@ -573,7 +595,7 @@
 
       <!-- Right Column: Form -->
       <div class="exit-popup-form-side">
-        <h4 id="popupTitle" style="font-size: 1.35rem; margin-bottom: 0.25rem;">Book Your Free Dental Consultation</h4>
+        <h4 id="popupTitle" style="font-size: 1.35rem; margin-bottom: 0.25rem;">Need an Instant Callback?</h4>
         <p class="popup-subtext">Get expert advice from experienced dental specialists.</p>
         
         <!-- Form Success State -->
@@ -581,38 +603,21 @@
           <div class="form-success-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
           </div>
-          <h3>Consultation Booked!</h3>
-          <p>Our coordinator will call you back within 15 minutes to confirm your slot.</p>
+          <h3>Request Sent Successfully!</h3>
+          <p>Our coordinator will call you back within 15 minutes.</p>
         </div>
 
         <form id="exitPopupForm" class="booking-form" style="grid-template-columns: 1fr; gap: 0.75rem;">
           <div>
-            <label for="exitName" class="form-label">Name</label>
+            <label for="exitName" class="form-label">Full Name*</label>
             <input type="text" id="exitName" class="form-input" required placeholder="Your full name" style="padding: 0.6rem 0.8rem; font-size: 0.85rem;">
           </div>
           <div>
-            <label for="exitPhone" class="form-label">Phone Number</label>
+            <label for="exitPhone" class="form-label">Mobile Number*</label>
             <input type="tel" id="exitPhone" class="form-input" required placeholder="10-digit mobile number" style="padding: 0.6rem 0.8rem; font-size: 0.85rem;">
           </div>
-          <div>
-            <label for="exitTreatment" class="form-label">Treatment Selection</label>
-            <select id="exitTreatment" class="form-input" required style="padding: 0.6rem 0.8rem; font-size: 0.85rem;">
-              <option value="" disabled selected>Select treatment</option>
-              <option value="General Consultation">General Consultation</option>
-              <option value="RCT">Root Canal Treatment</option>
-              <option value="Implants">Dental Implants</option>
-              <option value="Smile Design">Smile Designing</option>
-              <option value="Whitening">Teeth Whitening</option>
-              <option value="Braces Aligners">Braces & Aligners</option>
-              <option value="Crowns Bridges">Dental Crowns & Bridges</option>
-              <option value="Wisdom Tooth">Wisdom Tooth Removal</option>
-              <option value="Child Dentistry">Child Dentistry</option>
-              <option value="Gum Treatments">Gum Treatments</option>
-              <option value="Emergency">Emergency Dental Care</option>
-            </select>
-          </div>
           <div style="margin-top: 0.5rem;">
-            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.75rem;">Book Appointment</button>
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.75rem;">Request Callback</button>
           </div>
         </form>
       </div>

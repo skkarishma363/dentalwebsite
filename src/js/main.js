@@ -218,20 +218,35 @@ document.addEventListener('DOMContentLoaded', () => {
       const dateInput = form.querySelector('#tModalDate') || form.querySelector('input[type="date"]');
       const dateVal = dateInput ? dateInput.value : 'N/A';
       
-      const timeVal = 'Callback Requested'; // All non-hero forms request a callback
+      const timeInput = form.querySelector('#tModalTimeSlot');
+      const timeVal = timeInput ? timeInput.value : 'Callback Requested';
 
-      // Service resolution
+      // Service and Booking Mode (Lead Type) resolution
       let serviceVal = 'General Consultation';
-      const treatmentSelect = form.querySelector('#exitTreatment, #tModalTreatment') || form.querySelector('select');
-      if (treatmentSelect) {
-        if (treatmentSelect.selectedIndex >= 0) {
+      let bookingModeVal = 'General Inquiry';
+
+      if (formId === 'tModalForm') {
+        const treatmentSelect = form.querySelector('#tModalTreatment');
+        if (treatmentSelect && treatmentSelect.selectedIndex >= 0) {
           serviceVal = treatmentSelect.options[treatmentSelect.selectedIndex].text;
         }
+        bookingModeVal = 'Treatment Appointment';
+      } else if (formId === 'contactForm') {
+        serviceVal = 'Contact Inquiry';
+        bookingModeVal = 'Callback Request';
+      } else if (formId === 'exitPopupForm') {
+        serviceVal = 'General Inquiry';
+        bookingModeVal = 'Popup Callback';
       } else if (formId === 'doctorForm') {
         const docName = document.querySelector('.doctor-title')?.textContent.trim() || 'Doctor';
         serviceVal = `Doctor Consultation (${docName})`;
-      } else if (formId === 'contactForm') {
-        serviceVal = 'Contact Inquiry';
+        bookingModeVal = 'Callback Request';
+      } else {
+        // Fallback for any other forms
+        const treatmentSelect = form.querySelector('select');
+        if (treatmentSelect && treatmentSelect.selectedIndex >= 0) {
+          serviceVal = treatmentSelect.options[treatmentSelect.selectedIndex].text;
+        }
       }
 
       // Notes resolution
@@ -265,6 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
       formData.append('time', timeVal);
       formData.append('service', serviceVal);
       formData.append('notes', notesVal);
+      formData.append('bookingMode', bookingModeVal);
 
       fetch(APPOINTMENT_SCRIPT_URL, {
         method: 'POST',
@@ -295,6 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
               time: timeVal,
               service: serviceVal,
               notes: notesVal,
+              bookingMode: bookingModeVal,
               timestamp: new Date().toISOString()
             };
             const existing = JSON.parse(localStorage.getItem('apex_appointments') || '[]');
@@ -341,106 +358,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  const setupHeroBookingForm = () => {
-    const form = document.getElementById('heroBookingForm');
-    if (!form) return;
+  // Standard list of 1-hour slots
+  const allSlots = {
+    "Morning Session": ["9:30 AM", "10:30 AM", "11:30 AM", "12:30 PM"],
+    "Evening Session": ["5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM"]
+  };
 
-    const dateInput = form.querySelector('#bDate');
-    const timeSlotInput = form.querySelector('#bTimeSlot');
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const btnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
-    const btnSpinner = submitBtn ? submitBtn.querySelector('.btn-spinner') : null;
-    const errorBanner = document.getElementById('bookingFormError');
-
-    // SEGMENTED TOGGLE SWITCH LOGIC
-    const toggleContainer = document.getElementById('bookingToggleContainer');
-    const btnConsultation = document.getElementById('btnModeConsultation');
-    const btnTreatment = document.getElementById('btnModeTreatment');
-    const treatmentWrapper = document.getElementById('treatmentCollapseWrapper');
-    const treatmentSelect = form.querySelector('#bTreatment');
-    
-    let activeMode = 'Consultation'; // Default mode
-
-    // Initialize default value for Consultation mode
-    if (treatmentSelect) {
-      treatmentSelect.value = 'General Consultation';
-    }
-
-    const setBookingMode = (mode) => {
-      activeMode = mode;
-      
-      if (mode === 'Consultation') {
-        if (btnConsultation) btnConsultation.classList.add('active');
-        if (btnTreatment) btnTreatment.classList.remove('active');
-        if (toggleContainer) toggleContainer.classList.remove('treatment-active');
-        
-        if (treatmentWrapper) {
-          treatmentWrapper.classList.add('collapsed');
-        }
-        
-        if (treatmentSelect) {
-          treatmentSelect.value = 'General Consultation';
-          treatmentSelect.style.borderColor = '';
-        }
-      } else {
-        if (btnConsultation) btnConsultation.classList.remove('active');
-        if (btnTreatment) btnTreatment.classList.add('active');
-        if (toggleContainer) toggleContainer.classList.add('treatment-active');
-        
-        if (treatmentWrapper) {
-          treatmentWrapper.style.display = 'block';
-          treatmentWrapper.offsetHeight; // force reflow
-          treatmentWrapper.classList.remove('collapsed');
-        }
-        
-        if (treatmentSelect) {
-          treatmentSelect.value = '';
-          treatmentSelect.style.borderColor = '';
-        }
-      }
-    };
-
-    if (treatmentWrapper) {
-      treatmentWrapper.addEventListener('transitionend', (e) => {
-        if (e.propertyName === 'max-height') {
-          if (treatmentWrapper.classList.contains('collapsed')) {
-            treatmentWrapper.style.display = 'none';
-          }
-        }
-      });
-    }
-
-    if (btnConsultation) {
-      btnConsultation.addEventListener('click', () => setBookingMode('Consultation'));
-    }
-    if (btnTreatment) {
-      btnTreatment.addEventListener('click', () => setBookingMode('Selected Treatment'));
-    }
+  // Helper to load available time slots and enforce date restrictions
+  const setupTimeSlotLoader = (dateInput, timeSlotInput) => {
+    if (!dateInput || !timeSlotInput) return;
 
     // Set dynamic date restriction to today's date
-    if (dateInput) {
-      const today = new Date();
-      const year = today.getFullYear();
-      const month = ('0' + (today.getMonth() + 1)).slice(-2);
-      const day = ('0' + today.getDate()).slice(-2);
-      const todayStr = `${year}-${month}-${day}`;
-      dateInput.setAttribute('min', todayStr);
-      
-      // Default to today's date if empty
-      if (!dateInput.value) {
-        dateInput.value = todayStr;
-      }
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = ('0' + (today.getMonth() + 1)).slice(-2);
+    const day = ('0' + today.getDate()).slice(-2);
+    const todayStr = `${year}-${month}-${day}`;
+    dateInput.setAttribute('min', todayStr);
+    
+    // Default to today's date if empty
+    if (!dateInput.value) {
+      dateInput.value = todayStr;
     }
-
-    // Standard list of 1-hour slots
-    const allSlots = {
-      "Morning Session": ["9:30 AM", "10:30 AM", "11:30 AM", "12:30 PM"],
-      "Evening Session": ["5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM"]
-    };
 
     // Helper to rebuild time slot options omitting booked ones
     const rebuildSlotsDropdown = (booked) => {
-      if (!timeSlotInput) return;
       timeSlotInput.innerHTML = '';
       
       // Add default placeholder
@@ -512,10 +454,96 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    if (dateInput) {
-      dateInput.addEventListener('change', handleDateChange);
-      handleDateChange();
+    dateInput.addEventListener('change', handleDateChange);
+    handleDateChange();
+  };
+
+  const setupHeroBookingForm = () => {
+    const form = document.getElementById('heroBookingForm');
+    if (!form) return;
+
+    const dateInput = form.querySelector('#bDate');
+    const timeSlotInput = form.querySelector('#bTimeSlot');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const btnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
+    const btnSpinner = submitBtn ? submitBtn.querySelector('.btn-spinner') : null;
+    const errorBanner = document.getElementById('bookingFormError');
+
+    // SEGMENTED TOGGLE SWITCH LOGIC
+    const toggleContainer = document.getElementById('bookingToggleContainer');
+    const btnConsultation = document.getElementById('btnModeConsultation');
+    const btnTreatment = document.getElementById('btnModeTreatment');
+    const treatmentWrapper = document.getElementById('treatmentCollapseWrapper');
+    const treatmentSelect = form.querySelector('#bTreatment');
+    
+    let activeMode = 'Consultation'; // Default mode
+
+    // Initialize default value for Consultation mode
+    if (treatmentSelect) {
+      treatmentSelect.value = 'General Consultation';
     }
+
+    const setBookingMode = (mode) => {
+      activeMode = mode;
+      
+      if (mode === 'Consultation') {
+        if (btnConsultation) btnConsultation.classList.add('active');
+        if (btnTreatment) btnTreatment.classList.remove('active');
+        if (toggleContainer) toggleContainer.classList.remove('treatment-active');
+        
+        if (treatmentWrapper) {
+          treatmentWrapper.classList.add('collapsed');
+        }
+        
+        if (treatmentSelect) {
+          treatmentSelect.value = 'General Consultation';
+          treatmentSelect.style.borderColor = '';
+        }
+        
+        if (btnText) {
+          btnText.textContent = 'Book Consultation';
+        }
+      } else {
+        if (btnConsultation) btnConsultation.classList.remove('active');
+        if (btnTreatment) btnTreatment.classList.add('active');
+        if (toggleContainer) toggleContainer.classList.add('treatment-active');
+        
+        if (treatmentWrapper) {
+          treatmentWrapper.style.display = 'block';
+          treatmentWrapper.offsetHeight; // force reflow
+          treatmentWrapper.classList.remove('collapsed');
+        }
+        
+        if (treatmentSelect) {
+          treatmentSelect.value = '';
+          treatmentSelect.style.borderColor = '';
+        }
+        
+        if (btnText) {
+          btnText.textContent = 'Book Appointment';
+        }
+      }
+    };
+
+    if (treatmentWrapper) {
+      treatmentWrapper.addEventListener('transitionend', (e) => {
+        if (e.propertyName === 'max-height') {
+          if (treatmentWrapper.classList.contains('collapsed')) {
+            treatmentWrapper.style.display = 'none';
+          }
+        }
+      });
+    }
+
+    if (btnConsultation) {
+      btnConsultation.addEventListener('click', () => setBookingMode('Consultation'));
+    }
+    if (btnTreatment) {
+      btnTreatment.addEventListener('click', () => setBookingMode('Selected Treatment'));
+    }
+
+    // Set up slot loading for hero form
+    setupTimeSlotLoader(dateInput, timeSlotInput);
 
     // Helper to display error message
     const showSubmitError = (msg) => {
@@ -692,7 +720,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalOverlay = document.getElementById('successModalOverlay');
     const btnModalClose = document.getElementById('btnSuccessModalClose');
     const backdrop = document.getElementById('successModalBackdrop');
-    const originalBtnText = btnText ? btnText.textContent : 'Book Consultation Session';
 
     const closeModal = () => {
       if (modalOverlay) {
@@ -705,7 +732,7 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.classList.remove('btn-success-morph');
             submitBtn.disabled = false;
             if (btnText) {
-              btnText.textContent = originalBtnText;
+              btnText.textContent = (activeMode === 'Consultation') ? 'Book Consultation' : 'Book Appointment';
               btnText.style.display = 'inline';
             }
             if (btnSpinner) btnSpinner.style.display = 'none';
@@ -732,15 +759,17 @@ document.addEventListener('DOMContentLoaded', () => {
         errorBanner.textContent = '';
       }
 
-      const firstNameInput = form.querySelector('#bFirstName');
-      const lastNameInput = form.querySelector('#bLastName');
+      const fullNameInput = form.querySelector('#bFullName');
       const phoneInput = form.querySelector('#bPhone');
       const emailInput = form.querySelector('#bEmail');
       const treatmentInput = form.querySelector('#bTreatment');
       const msgInput = form.querySelector('#bMsg');
 
       let isValid = true;
-      const requiredInputs = [firstNameInput, lastNameInput, phoneInput, emailInput, treatmentInput, dateInput, timeSlotInput];
+      const requiredInputs = [fullNameInput, phoneInput, emailInput, dateInput, timeSlotInput];
+      if (activeMode !== 'Consultation') {
+        requiredInputs.push(treatmentInput);
+      }
       
       requiredInputs.forEach(input => {
         if (!input || !input.value.trim()) {
@@ -774,12 +803,13 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const fullName = `${firstNameInput.value.trim()} ${lastNameInput.value.trim()}`;
+      const fullName = fullNameInput.value.trim();
       const phone = phoneInput.value.trim();
       const email = emailInput.value.trim();
       const dateVal = dateInput.value;
       const timeVal = timeSlotInput.value;
-      const serviceVal = treatmentInput.options[treatmentInput.selectedIndex].text;
+      const serviceVal = (activeMode === 'Consultation') ? 'Consultation' : treatmentInput.options[treatmentInput.selectedIndex].text;
+      const leadTypeVal = (activeMode === 'Consultation') ? 'Consultation' : 'Treatment Appointment';
       const msgVal = msgInput ? msgInput.value.trim() : '';
 
       if (APPOINTMENT_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL') {
@@ -801,7 +831,7 @@ document.addEventListener('DOMContentLoaded', () => {
       formData.append('time', timeVal);
       formData.append('service', serviceVal);
       formData.append('notes', msgVal);
-      formData.append('bookingMode', activeMode);
+      formData.append('bookingMode', leadTypeVal);
 
       fetch(APPOINTMENT_SCRIPT_URL, {
         method: 'POST',
@@ -853,7 +883,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 time: timeVal,
                 service: serviceVal,
                 notes: msgVal,
-                bookingMode: activeMode,
+                bookingMode: leadTypeVal,
                 timestamp: new Date().toISOString()
               };
               const existing = JSON.parse(localStorage.getItem('apex_appointments') || '[]');
@@ -1604,6 +1634,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const tModalSuccess = document.getElementById('tModalSuccess');
   
   if (tModal) {
+    // Wire up slot loading for treatment modal form
+    const tModalDate = document.getElementById('tModalDate');
+    const tModalTimeSlot = document.getElementById('tModalTimeSlot');
+    setupTimeSlotLoader(tModalDate, tModalTimeSlot);
+
     // Open modal
     bookingBtns.forEach(btn => {
       btn.addEventListener('click', (e) => {
@@ -1619,11 +1654,9 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
         
-        // Dynamically set minimum date to today
-        const dateInput = document.getElementById('tModalDate');
-        if (dateInput) {
-          const today = new Date().toISOString().split('T')[0];
-          dateInput.setAttribute('min', today);
+        // Trigger slot reload when modal opens to ensure fresh data
+        if (tModalDate) {
+          tModalDate.dispatchEvent(new Event('change'));
         }
         
         tModal.classList.add('active');

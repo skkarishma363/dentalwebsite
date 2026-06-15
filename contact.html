@@ -182,36 +182,28 @@
 
     <!-- Contact Form Block -->
     <div class="contact-form-block">
-      <h2 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Send Us A Message</h2>
-      <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 1.5rem;">Have questions? Fill out the form below and we will revert back within 2 business hours.</p>
+      <h2 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Need an Instant Callback?</h2>
+      <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 1.5rem;">Enter your details below and a treatment coordinator will contact you shortly.</p>
       
       <!-- Form Success State -->
       <div class="form-success" id="contactFormSuccess">
         <div class="form-success-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
         </div>
-        <h3>Message Sent Successfully!</h3>
-        <p>Thank you for reaching out. A treatment coordinator will contact you shortly.</p>
+        <h3>Request Sent Successfully!</h3>
+        <p>Thank you for reaching out. A coordinator will call you back shortly.</p>
       </div>
 
       <form id="contactForm" class="booking-form" style="grid-template-columns: 1fr; gap: 1.25rem;">
         <div>
-          <label for="cName" class="form-label">Name</label>
+          <label for="cName" class="form-label">Full Name*</label>
           <input type="text" id="cName" class="form-input" required placeholder="Your full name">
         </div>
         <div>
-          <label for="cPhone" class="form-label">Phone Number</label>
+          <label for="cPhone" class="form-label">Mobile Number*</label>
           <input type="tel" id="cPhone" class="form-input" required placeholder="10-digit mobile number">
         </div>
-        <div>
-          <label for="cEmail" class="form-label">Email Address (Optional)</label>
-          <input type="email" id="cEmail" class="form-input" placeholder="Your email address">
-        </div>
-        <div>
-          <label for="cMsg" class="form-label">Message</label>
-          <textarea id="cMsg" class="form-input" required placeholder="Briefly describe your inquiry (e.g. implant price, booking slot)" style="min-height: 100px;"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Message</button>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Request Callback</button>
       </form>
     </div>
 
@@ -375,7 +367,7 @@
 
       <!-- Right Column: Form -->
       <div class="exit-popup-form-side">
-        <h4 id="popupTitle" style="font-size: 1.35rem; margin-bottom: 0.25rem;">Book Your Free Dental Consultation</h4>
+        <h4 id="popupTitle" style="font-size: 1.35rem; margin-bottom: 0.25rem;">Need an Instant Callback?</h4>
         <p class="popup-subtext">Get expert advice from experienced dental specialists.</p>
         
         <!-- Form Success State -->
@@ -383,38 +375,21 @@
           <div class="form-success-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
           </div>
-          <h3>Consultation Booked!</h3>
-          <p>Our coordinator will call you back within 15 minutes to confirm your slot.</p>
+          <h3>Request Sent Successfully!</h3>
+          <p>Our coordinator will call you back within 15 minutes.</p>
         </div>
 
         <form id="exitPopupForm" class="booking-form" style="grid-template-columns: 1fr; gap: 0.75rem;">
           <div>
-            <label for="exitName" class="form-label">Name</label>
+            <label for="exitName" class="form-label">Full Name*</label>
             <input type="text" id="exitName" class="form-input" required placeholder="Your full name" style="padding: 0.6rem 0.8rem; font-size: 0.85rem;">
           </div>
           <div>
-            <label for="exitPhone" class="form-label">Phone Number</label>
+            <label for="exitPhone" class="form-label">Mobile Number*</label>
             <input type="tel" id="exitPhone" class="form-input" required placeholder="10-digit mobile number" style="padding: 0.6rem 0.8rem; font-size: 0.85rem;">
           </div>
-          <div>
-            <label for="exitTreatment" class="form-label">Treatment Selection</label>
-            <select id="exitTreatment" class="form-input" required style="padding: 0.6rem 0.8rem; font-size: 0.85rem;">
-              <option value="" disabled selected>Select treatment</option>
-              <option value="General Consultation">General Consultation</option>
-              <option value="RCT">Root Canal Treatment</option>
-              <option value="Implants">Dental Implants</option>
-              <option value="Smile Design">Smile Designing</option>
-              <option value="Whitening">Teeth Whitening</option>
-              <option value="Braces Aligners">Braces & Aligners</option>
-              <option value="Crowns Bridges">Dental Crowns & Bridges</option>
-              <option value="Wisdom Tooth">Wisdom Tooth Removal</option>
-              <option value="Child Dentistry">Child Dentistry</option>
-              <option value="Gum Treatments">Gum Treatments</option>
-              <option value="Emergency">Emergency Dental Care</option>
-            </select>
-          </div>
           <div style="margin-top: 0.5rem;">
-            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.75rem;">Book Appointment</button>
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.75rem;">Request Callback</button>
           </div>
         </form>
       </div>
