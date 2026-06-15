@@ -509,8 +509,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (toggleContainer) toggleContainer.classList.add('treatment-active');
         
         if (treatmentWrapper) {
-          treatmentWrapper.style.display = 'block';
-          treatmentWrapper.offsetHeight; // force reflow
           treatmentWrapper.classList.remove('collapsed');
         }
         
@@ -524,16 +522,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     };
-
-    if (treatmentWrapper) {
-      treatmentWrapper.addEventListener('transitionend', (e) => {
-        if (e.propertyName === 'max-height') {
-          if (treatmentWrapper.classList.contains('collapsed')) {
-            treatmentWrapper.style.display = 'none';
-          }
-        }
-      });
-    }
 
     if (btnConsultation) {
       btnConsultation.addEventListener('click', () => setBookingMode('Consultation'));
