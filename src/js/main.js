@@ -3,6 +3,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const APPOINTMENT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwZIQrMiWcyrkQiQOW5q-krBT8Vh2ihZxoyiqMXsm_SrcugJqVlDj8syEXcb5zvyr4r/exec';
 
   // ==========================================================================
+  // GOOGLE MAPS DIRECTIONS BEHAVIOR (MOBILE VS DESKTOP)
+  // ==========================================================================
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const mapsLinks = document.querySelectorAll('a[href*="google.com/maps/dir"]');
+  mapsLinks.forEach(link => {
+    // Ensure the exact requested URL is set
+    link.setAttribute('href', 'https://www.google.com/maps/dir/?api=1&destination=Shop+No+3+4+Apex+Dental+Hospital+Mahalakshmi+Complex+Ramanayapeta+Kakinada');
+    
+    if (isMobile) {
+      // On mobile devices, remove target="_blank" so the OS intercepts the Universal Link
+      // and opens it directly in the native Google Maps app if available.
+      link.removeAttribute('target');
+    } else {
+      // On desktop, open in a new tab
+      link.setAttribute('target', '_blank');
+    }
+  });
+
+  // ==========================================================================
   // HEADER SCROLL EFFECT
   // ==========================================================================
   const header = document.querySelector('.header');
