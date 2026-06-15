@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // GOOGLE MAPS DIRECTIONS BEHAVIOR (MOBILE VS DESKTOP)
   // ==========================================================================
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  const mapsLinks = document.querySelectorAll('a[href*="google.com/maps/dir"]');
+  const mapsLinks = document.querySelectorAll('a[href*="maps.app.goo.gl"], a[href*="google.com/maps"]');
   mapsLinks.forEach(link => {
     // Ensure the exact requested URL is set
-    link.setAttribute('href', 'https://www.google.com/maps/dir/?api=1&destination=Shop+No+3+4+Apex+Dental+Hospital+Mahalakshmi+Complex+Ramanayapeta+Kakinada');
+    link.setAttribute('href', 'https://maps.app.goo.gl/pt7AVtiK8uB63sHs8');
     
     if (isMobile) {
       // On mobile devices, remove target="_blank" so the OS intercepts the Universal Link
