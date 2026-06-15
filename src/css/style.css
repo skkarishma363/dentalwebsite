@@ -1478,6 +1478,7 @@ p {
   border-radius: var(--radius-sm);
   text-align: center;
   height: 42px;
+  line-height: 1.15;
   box-sizing: border-box;
 }
 
@@ -1508,6 +1509,7 @@ p {
   border-radius: var(--radius-sm);
   text-align: center;
   height: 42px;
+  line-height: 1.15;
   position: relative;
   z-index: 2;
   transition: background-color var(--transition-fast);
@@ -4329,6 +4331,12 @@ p {
   select.form-input,
   input[type="date"].form-input {
     min-height: 48px;
+  }
+
+  .treatment-card-book,
+  .treatment-card-link {
+    padding: 0.5rem 4px !important; /* Reduce horizontal padding on mobile to maximize space */
+    line-height: 1.1 !important;
   }
 
   .contact-form-block {
