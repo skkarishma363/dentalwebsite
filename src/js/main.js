@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mapsLinks = document.querySelectorAll('a[href*="maps.app.goo.gl"], a[href*="google.com/maps"]');
   mapsLinks.forEach(link => {
     // Ensure the exact requested URL is set
-    link.setAttribute('href', 'https://maps.app.goo.gl/pt7AVtiK8uB63sHs8');
+    link.setAttribute('href', 'https://www.google.com/maps/place/Apex+Dental+Hospital/@16.9946308,82.2474742,954m/data=!3m1!1e3!4m6!3m5!1s0x3a382903be4bb95d:0xc0fae4e2d22426b5!8m2!3d16.9946308!4d82.2474742!16s%2Fg%2F11t2bzvg1m!18m1!1e1');
     
     if (isMobile) {
       // On mobile devices, remove target="_blank" so the OS intercepts the Universal Link
