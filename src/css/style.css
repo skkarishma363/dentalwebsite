@@ -3888,7 +3888,10 @@ p {
 }
 
 .exit-popup-image-side {
-  background: linear-gradient(135deg, var(--color-teal-dark) 0%, var(--color-teal) 100%);
+  background-image: linear-gradient(135deg, rgba(0, 70, 70, 0.55) 0%, rgba(0, 100, 100, 0.6) 100%), url('/public/treatments/dentist-treatment.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: var(--color-white);
   padding: var(--space-md);
   display: flex;
@@ -3902,7 +3905,7 @@ p {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, rgba(0,0,0,0) 70%);
+  background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, rgba(0,0,0,0.15) 100%);
   pointer-events: none;
 }
 
@@ -3911,6 +3914,9 @@ p {
   font-size: 1.25rem;
   margin-bottom: 0.25rem;
   font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 2;
 }
 
 .exit-popup-desc {
@@ -3920,6 +3926,9 @@ p {
   font-weight: 600;
   letter-spacing: 0.5px;
   margin-bottom: 1.25rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 2;
 }
 
 .exit-popup-benefits {
@@ -3937,6 +3946,9 @@ p {
   font-size: 0.85rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  position: relative;
+  z-index: 2;
 }
 
 .exit-popup-benefits li span {
@@ -4456,7 +4468,30 @@ p {
   }
   
   .exit-popup-image-side {
-    display: none;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem var(--space-md);
+    background-position: center 30%;
+  }
+
+  .exit-popup-image-side h3 {
+    text-align: center;
+    width: 100%;
+  }
+
+  .exit-popup-desc {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0.75rem;
+  }
+
+  .exit-popup-benefits {
+    align-items: center;
+  }
+
+  .exit-popup-benefits li {
+    font-size: 0.8rem;
   }
   
   .journey-timeline {
