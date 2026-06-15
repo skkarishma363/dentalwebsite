@@ -5129,10 +5129,36 @@ body.modal-open {
   }
   .t-modal-buttons {
     flex-direction: column;
+    position: sticky;
+    bottom: 0;
+    background-color: var(--color-white);
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-border);
+    z-index: 10;
+    flex-shrink: 0;
   }
   .treatment-modal-content {
     padding: 2rem 1.25rem 1.25rem 1.25rem;
     margin: 1rem;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  .treatment-modal-header {
+    flex-shrink: 0;
+    margin-bottom: 1rem;
+  }
+  #tModalForm {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 6px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  #tModalSuccess {
+    flex: 1;
+    overflow-y: auto;
   }
 }
 
