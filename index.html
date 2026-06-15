@@ -305,82 +305,86 @@
           <p>Your appointment request has been submitted successfully. Our team will contact you shortly.</p>
         </div>
 
-        <form id="heroBookingForm" class="booking-form">
-          <!-- Booking Mode Toggle -->
-          <div class="booking-toggle-wrapper">
-            <div class="booking-toggle-container" id="bookingToggleContainer">
-              <div class="booking-toggle-indicator"></div>
-              <button type="button" class="booking-toggle-btn active" id="btnModeConsultation" data-mode="Consultation">Consultation</button>
-              <button type="button" class="booking-toggle-btn" id="btnModeTreatment" data-mode="Selected Treatment">Select Treatment</button>
+        <form id="heroBookingForm" class="booking-form" novalidate>
+          <div class="booking-form-fields-scroll">
+            <!-- Booking Mode Toggle -->
+            <div class="booking-toggle-wrapper">
+              <div class="booking-toggle-container" id="bookingToggleContainer">
+                <div class="booking-toggle-indicator"></div>
+                <button type="button" class="booking-toggle-btn active" id="btnModeConsultation" data-mode="Consultation">Consultation</button>
+                <button type="button" class="booking-toggle-btn" id="btnModeTreatment" data-mode="Selected Treatment">Select Treatment</button>
+              </div>
+            </div>
+
+            <div>
+              <label for="bFullName" class="form-label">Full Name*</label>
+              <input type="text" id="bFullName" class="form-input" required placeholder="Enter full name">
+            </div>
+            <div>
+              <label for="bPhone" class="form-label">Mobile Number*</label>
+              <input type="tel" id="bPhone" class="form-input" required placeholder="Enter mobile number">
+            </div>
+            <div class="form-group-full">
+              <label for="bEmail" class="form-label">Email Address*</label>
+              <input type="email" id="bEmail" class="form-input" required placeholder="Enter email address">
+            </div>
+            <div>
+              <label for="bDate" class="form-label">Preferred Date*</label>
+              <input type="date" id="bDate" class="form-input" required min="2026-06-12">
+            </div>
+            <div>
+              <label for="bTimeSlot" class="form-label">Available Time Slot*</label>
+              <select id="bTimeSlot" class="form-input" required>
+                <option value="" disabled selected>Select Available Time Slot</option>
+                <optgroup label="Morning Session">
+                  <option value="9:30 AM">9:30 AM</option>
+                  <option value="10:30 AM">10:30 AM</option>
+                  <option value="11:30 AM">11:30 AM</option>
+                  <option value="12:30 PM">12:30 PM</option>
+                </optgroup>
+                <optgroup label="Evening Session">
+                  <option value="5:00 PM">5:00 PM</option>
+                  <option value="6:00 PM">6:00 PM</option>
+                  <option value="7:00 PM">7:00 PM</option>
+                  <option value="8:00 PM">8:00 PM</option>
+                </optgroup>
+              </select>
+            </div>
+            <div class="treatment-collapse-wrapper collapsed form-group-full" id="treatmentCollapseWrapper">
+              <label for="bTreatment" class="form-label">Required Treatment*</label>
+              <select id="bTreatment" class="form-input" required>
+                <option value="" disabled selected>Select treatment</option>
+                <option value="General Consultation">General Consultation</option>
+                <option value="RCT">Root Canal Treatment</option>
+                <option value="Implants">Dental Implants</option>
+                <option value="Smile Design">Smile Designing</option>
+                <option value="Whitening">Teeth Whitening</option>
+                <option value="Braces Aligners">Braces & Aligners</option>
+                <option value="Crowns Bridges">Dental Crowns & Bridges</option>
+                <option value="Wisdom Tooth">Wisdom Tooth Removal</option>
+                <option value="Child Dentistry">Child Dentistry</option>
+                <option value="Gum Treatments">Gum Treatments</option>
+                <option value="Emergency">Emergency Dental Care</option>
+              </select>
+            </div>
+            <div class="form-group-full">
+              <label for="bMsg" class="form-label">Message (Optional)</label>
+              <textarea id="bMsg" class="form-input" placeholder="Briefly describe your symptoms or timing preferences"></textarea>
             </div>
           </div>
-
-          <div>
-            <label for="bFullName" class="form-label">Full Name*</label>
-            <input type="text" id="bFullName" class="form-input" required placeholder="Enter full name">
-          </div>
-          <div>
-            <label for="bPhone" class="form-label">Mobile Number*</label>
-            <input type="tel" id="bPhone" class="form-input" required placeholder="Enter mobile number">
-          </div>
-          <div class="form-group-full">
-            <label for="bEmail" class="form-label">Email Address*</label>
-            <input type="email" id="bEmail" class="form-input" required placeholder="Enter email address">
-          </div>
-          <div>
-            <label for="bDate" class="form-label">Preferred Date*</label>
-            <input type="date" id="bDate" class="form-input" required min="2026-06-12">
-          </div>
-          <div>
-            <label for="bTimeSlot" class="form-label">Available Time Slot*</label>
-            <select id="bTimeSlot" class="form-input" required>
-              <option value="" disabled selected>Select Available Time Slot</option>
-              <optgroup label="Morning Session">
-                <option value="9:30 AM">9:30 AM</option>
-                <option value="10:30 AM">10:30 AM</option>
-                <option value="11:30 AM">11:30 AM</option>
-                <option value="12:30 PM">12:30 PM</option>
-              </optgroup>
-              <optgroup label="Evening Session">
-                <option value="5:00 PM">5:00 PM</option>
-                <option value="6:00 PM">6:00 PM</option>
-                <option value="7:00 PM">7:00 PM</option>
-                <option value="8:00 PM">8:00 PM</option>
-              </optgroup>
-            </select>
-          </div>
-          <div class="treatment-collapse-wrapper collapsed form-group-full" id="treatmentCollapseWrapper">
-            <label for="bTreatment" class="form-label">Required Treatment*</label>
-            <select id="bTreatment" class="form-input" required>
-              <option value="" disabled selected>Select treatment</option>
-              <option value="General Consultation">General Consultation</option>
-              <option value="RCT">Root Canal Treatment</option>
-              <option value="Implants">Dental Implants</option>
-              <option value="Smile Design">Smile Designing</option>
-              <option value="Whitening">Teeth Whitening</option>
-              <option value="Braces Aligners">Braces & Aligners</option>
-              <option value="Crowns Bridges">Dental Crowns & Bridges</option>
-              <option value="Wisdom Tooth">Wisdom Tooth Removal</option>
-              <option value="Child Dentistry">Child Dentistry</option>
-              <option value="Gum Treatments">Gum Treatments</option>
-              <option value="Emergency">Emergency Dental Care</option>
-            </select>
-          </div>
-          <div class="form-group-full">
-            <label for="bMsg" class="form-label">Message (Optional)</label>
-            <textarea id="bMsg" class="form-input" placeholder="Briefly describe your symptoms or timing preferences"></textarea>
-          </div>
-          <div class="form-group-full" id="bookingFormError" style="display: none; background-color: #fef2f2; border: 1px solid #fee2e2; color: #b91c1c; padding: 0.75rem 1rem; border-radius: var(--radius-md); font-size: 0.88rem; font-weight: 600; text-align: center;"></div>
-          <div class="form-group-full">
-            <button type="submit" class="btn btn-primary" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
-              <span class="btn-text">Book Consultation</span>
-              <span class="btn-spinner" style="display: none;">
-                <svg class="spinner-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 18px; height: 18px; animation: rotate 2s linear infinite;">
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" style="opacity: 0.25; fill: none;"></circle>
-                  <path d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" fill="currentColor"></path>
-                </svg>
-              </span>
-            </button>
+          <div class="booking-form-footer">
+            <div class="form-group-full" id="bookingFormError" style="display: none; background-color: #fef2f2; border: 1px solid #fee2e2; color: #b91c1c; padding: 0.75rem 1rem; border-radius: var(--radius-md); font-size: 0.88rem; font-weight: 600; text-align: center; margin-bottom: 0.75rem;"></div>
+            <div class="form-group-full">
+              <button type="submit" class="btn btn-primary" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%;">
+                <span class="btn-text">Book Consultation</span>
+                <span class="btn-spinner" style="display: none;">
+                  <svg class="spinner-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 18px; height: 18px; animation: rotate 2s linear infinite;">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" style="opacity: 0.25; fill: none;"></circle>
+                    <path d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" fill="currentColor"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
         </form>
       </div>
