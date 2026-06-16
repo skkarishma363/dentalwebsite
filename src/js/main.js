@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Configurable Google Apps Script Web App URL for appointments
-  const APPOINTMENT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwZIQrMiWcyrkQiQOW5q-krBT8Vh2ihZxoyiqMXsm_SrcugJqVlDj8syEXcb5zvyr4r/exec';
+  const APPOINTMENT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwBK0VVxjANb5hX8PwY1ICAyqP-0BczCyCYeE7ggXvcM1gKgmnthBsXGytd7-rpOog/exec';
 
   // ==========================================================================
   // GOOGLE MAPS DIRECTIONS BEHAVIOR (MOBILE VS DESKTOP)
