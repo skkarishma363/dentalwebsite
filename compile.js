@@ -1262,6 +1262,76 @@ const buildIndividualBlogPages = () => {
 };
 
 // ==========================================================================
+// SEO FILES GENERATION (SITEMAP & ROBOTS.TXT)
+// ==========================================================================
+const generateSEOFiles = () => {
+  console.log('Generating sitemap.xml and robots.txt...');
+  
+  const baseUrl = 'https://apexdentalkkd.in';
+  
+  // Base URLs of main pages
+  const urls = [
+    { loc: `${baseUrl}/`, priority: '1.0' },
+    { loc: `${baseUrl}/index.html`, priority: '0.9' },
+    { loc: `${baseUrl}/contact.html`, priority: '0.8' },
+    { loc: `${baseUrl}/blog.html`, priority: '0.8' },
+    { loc: `${baseUrl}/privacy-policy.html`, priority: '0.3' },
+    { loc: `${baseUrl}/terms-and-conditions.html`, priority: '0.3' },
+    { loc: `${baseUrl}/treatments/index.html`, priority: '0.8' },
+    { loc: `${baseUrl}/doctors/index.html`, priority: '0.8' }
+  ];
+  
+  // Add treatments
+  treatments.forEach(t => {
+    urls.push({ loc: `${baseUrl}/treatments/${t.id}.html`, priority: '0.7' });
+  });
+  
+  // Add doctors
+  doctors.forEach(d => {
+    urls.push({ loc: `${baseUrl}/doctors/${d.id}.html`, priority: '0.7' });
+  });
+  
+  // Add blogs
+  blogs.forEach(b => {
+    urls.push({ loc: `${baseUrl}/blogs/${b.id}.html`, priority: '0.6' });
+  });
+  
+  // Build XML content
+  let sitemapContent = '<?xml version="1.0" encoding="UTF-8"?>\n';
+  sitemapContent += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+  urls.forEach(url => {
+    sitemapContent += '  <url>\n';
+    sitemapContent += `    <loc>${url.loc}</loc>\n`;
+    sitemapContent += `    <priority>${url.priority}</priority>\n`;
+    sitemapContent += '  </url>\n';
+  });
+  sitemapContent += '</urlset>\n';
+  
+  // Build robots.txt content
+  const robotsContent = `User-agent: *
+Allow: /
+
+Sitemap: ${baseUrl}/sitemap.xml
+`;
+
+  // Path to /public/
+  const publicDir = path.join(__dirname, 'public');
+  if (!fs.existsSync(publicDir)) {
+    fs.mkdirSync(publicDir, { recursive: true });
+  }
+
+  // Write files to /public/
+  fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemapContent, 'utf8');
+  fs.writeFileSync(path.join(publicDir, 'robots.txt'), robotsContent, 'utf8');
+  console.log('✓ sitemap.xml and robots.txt written to /public/');
+
+  // Write files to root /
+  fs.writeFileSync(path.join(__dirname, 'sitemap.xml'), sitemapContent, 'utf8');
+  fs.writeFileSync(path.join(__dirname, 'robots.txt'), robotsContent, 'utf8');
+  console.log('✓ sitemap.xml and robots.txt written to root directory');
+};
+
+// ==========================================================================
 // MAIN BUILD ORCHESTRATOR
 // ==========================================================================
 const buildAll = () => {
@@ -1277,6 +1347,7 @@ const buildAll = () => {
     buildIndividualTreatmentPages();
     buildIndividualDoctorPages();
     buildIndividualBlogPages();
+    generateSEOFiles();
     console.log('Build completed successfully! 20+ static HTML pages generated.');
   } catch (error) {
     console.error('ERROR during compilation:', error);
@@ -1285,3 +1356,4 @@ const buildAll = () => {
 };
 
 buildAll();
+
