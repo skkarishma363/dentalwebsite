@@ -773,7 +773,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const msgInput = form.querySelector('#bMsg');
 
       let isValid = true;
-      const requiredInputs = [fullNameInput, phoneInput, emailInput, dateInput, timeSlotInput];
+      const requiredInputs = [fullNameInput, phoneInput, dateInput, timeSlotInput];
       if (activeMode !== 'Consultation') {
         requiredInputs.push(treatmentInput);
       }
@@ -801,13 +801,15 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Validate Email address
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(emailInput.value.trim())) {
-        isValid = false;
-        emailInput.style.borderColor = '#f43f5e';
-        showSubmitError('Please enter a valid email address.');
-        return;
+      // Validate Email address if provided
+      if (emailInput.value.trim() !== '') {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailInput.value.trim())) {
+          isValid = false;
+          emailInput.style.borderColor = '#f43f5e';
+          showSubmitError('Please enter a valid email address.');
+          return;
+        }
       }
 
       const fullName = fullNameInput.value.trim();
