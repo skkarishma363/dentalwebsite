@@ -288,7 +288,7 @@ const generateWhyChooseUsSlider = () => {
         <h3 class="why-slide-title">${card.title}</h3>
         <p class="why-slide-text">${card.text}</p>
         <div class="why-slide-actions">
-          <a href="#booking" class="btn btn-accent why-slide-btn">Book Free Consultation</a>
+          <a href="#booking" class="btn btn-accent why-slide-btn">Book Consultation</a>
         </div>
       </div>
       <!-- Right Side (60%): Visual -->
