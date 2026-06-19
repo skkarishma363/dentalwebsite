@@ -301,6 +301,8 @@ document.addEventListener('DOMContentLoaded', () => {
       formData.append('notes', notesVal);
       formData.append('bookingMode', bookingModeVal);
 
+      console.log(`[Form Submit: ${formId}] Payload being sent:`, Object.fromEntries(formData.entries()));
+
       fetch(APPOINTMENT_SCRIPT_URL, {
         method: 'POST',
         body: formData,
@@ -841,6 +843,8 @@ document.addEventListener('DOMContentLoaded', () => {
       formData.append('service', serviceVal);
       formData.append('notes', msgVal);
       formData.append('bookingMode', leadTypeVal);
+
+      console.log('[Form Submit: heroBookingForm] Payload being sent:', Object.fromEntries(formData.entries()));
 
       fetch(APPOINTMENT_SCRIPT_URL, {
         method: 'POST',
