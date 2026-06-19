@@ -1,7 +1,7 @@
 [build]
   command = "npm run build"
   publish = "."
-  ignore = "exit 0"
+  # ignore = "exit 0"
 
 [build.processing]
   skip_processing = false
